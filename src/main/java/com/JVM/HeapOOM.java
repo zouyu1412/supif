@@ -15,6 +15,7 @@ public class HeapOOM {
             list.add(new OOMObject());
         }
     }
+
 }
 
 //       JVM args:     -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
