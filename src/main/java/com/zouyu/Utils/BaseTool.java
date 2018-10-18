@@ -13,7 +13,12 @@ public class BaseTool {
 //		map.put("3","3");
 //		System.out.println(map.keySet().stream().filter(i -> i.startsWith("dasd")).count()+" jkj");
 //		printMap(map);
-
+		Map<String,String> map = new HashMap<>();
+		String s = "hhee---"+map.get("haha");
+		String[] split = s.split("---");
+		for(String ss:split) {
+			System.out.println(ss);
+		}
 		final List<Integer> list = new ArrayList<>();
 		list.add(1);
 		list.add(2);

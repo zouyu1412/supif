@@ -7,6 +7,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,5 +51,12 @@ public class HttpUtil {
             }
         }
         return null;
+    }
+
+    @Test
+    public void test(){
+        String url = "http://www.baidu.com";
+        String content = new HttpUtil().doGetWithUrl(url);
+        System.out.println(content);
     }
 }

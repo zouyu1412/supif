@@ -24,7 +24,8 @@ public class RSATester {
     public static void main(String[] args) throws Exception {
         //testJavaRsa();
 
-        testSign();
+//        testSign();
+        test();
     }
 
     @Test
