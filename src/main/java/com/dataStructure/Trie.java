@@ -133,7 +133,7 @@ public class Trie {
 
     public static void main(String[] args) {
         Trie tree = new Trie();
-        String[] strs = {"banana", "band", "bee", "absolute", "acm",};
+        String[] strs = {"be", "bee"};
         String[] prefix = {"ba", "b", "band", "abc",};
         for (String str:
              strs) {

@@ -2,39 +2,81 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0d8e95b-f010-4ffa-94a5-b7609916ae62" name="Default" comment="新提交">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ibatis_ibatis_sqlmap_3_0_beta_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wechat/wepay/IWXPayDomain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayXmlUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/smartfox_info.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ML/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ML/TutorialDataset.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dataStructure/SearchTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dataStructure/searchtree/KeyWordLocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dataStructure/searchtree/STreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dataStructure/searchtree/SearchTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dataStructure/searchtree/SearchUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prince/concurrent/KillDeadlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tem/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tem/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tem/PooledService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tem/UserInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tem/UserInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tem/WateringService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/LRUCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MinStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MyQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MyStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/RandomListNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/Trie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/WordDictionary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/supif_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/supif_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/MySpringApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebimatch/AlUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebimatch/BiOrgDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/RSA/RSATester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prince/RSA/RSATester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/fileupload/UploadController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/springevent/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prince/springevent/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dataStructure/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dataStructure/Trie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/concurrent/ImmutableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prince/concurrent/ImmutableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/concurrent/UnsafeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prince/concurrent/UnsafeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/oneToOne/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/oneToOne/Producer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/oneToTwo/NewTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/oneToTwo/Work1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/oneToTwo/Work2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/structuration/BaseConnector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/structuration/MessageInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/structuration/Receiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/structuration/Sender.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/rabbitmq/structuration/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prince/redis/Redis.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/BaseTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/BaseTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/HttpUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/DateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/designmode/strategy/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/designmode/strategy/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/EasyProblemSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/EasyProblemSolution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/HardProblemSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/HardProblemSolution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/ListNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/ListNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/TreeCluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/TreeCluster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/supif.iml" beforeDir="false" afterPath="$PROJECT_DIR$/supif.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/MySpringApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ebimatch/AlUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ebimatch/BiOrgDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/fileupload/UploadController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/springevent/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/prince/springevent/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dataStructure/Trie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dataStructure/Trie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/concurrent/ImmutableTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/prince/concurrent/ImmutableTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/concurrent/UnsafeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/prince/concurrent/UnsafeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/oneToOne/Customer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/oneToOne/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/oneToOne/Producer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/oneToTwo/NewTask.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/oneToTwo/Work1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/oneToTwo/Work2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/oneToTwo/Work2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/structuration/BaseConnector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/structuration/MessageInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/structuration/Receiver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/structuration/Sender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/rabbitmq/structuration/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prince/redis/Redis.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/Utils/BaseTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/Utils/BaseTool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tem.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wechat/wepay/MsgHandleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/ImageUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temmdsadm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ImageUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temmm.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/Utils/DateUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/Utils/DateUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/designmode/strategy/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/designmode/strategy/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/EasyProblemSolution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/EasyProblemSolution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/HardProblemSolution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/HardProblemSolution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/ListNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/MasterClassicCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/MasterClassicCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/MediumProblemSolution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/MediumProblemSolution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/TreeCluster.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/TreeCluster.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -47,67 +89,91 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/supif$MediumProblemSolution.ic" NAME="MediumProblemSolution Coverage Results" MODIFIED="1554086289503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.zouyu.leetcode.*</FILTER>
+    </SUITE>
+  </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-102421398">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
-          <entry key="project.open.time.1" value="4" />
+          <entry key="project.closed" value="71" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="13" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.109" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.2" value="5" />
-          <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.4" value="5" />
-          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.2" value="19" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.3" value="9" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.4" value="10" />
+          <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.5" value="4" />
+          <entry key="project.open.time.50" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="74" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="SeachTree" value="1" />
           <entry key="dummy" value="12" />
-          <entry key="java" value="610" />
+          <entry key="java" value="45882" />
           <entry key="txt" value="9" />
           <entry key="xml" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="610" />
-          <entry key="PLAIN_TEXT" value="21" />
+          <entry key="JAVA" value="45882" />
+          <entry key="PLAIN_TEXT" value="22" />
           <entry key="XML" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="6" />
-          <entry key="iml" value="1" />
-          <entry key="java" value="151" />
+          <entry key="class" value="35" />
+          <entry key="iml" value="2" />
+          <entry key="java" value="294" />
           <entry key="jsp" value="1" />
           <entry key="properties" value="2" />
           <entry key="txt" value="4" />
-          <entry key="xml" value="16" />
+          <entry key="xml" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="6" />
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="151" />
+          <entry key="CLASS" value="35" />
+          <entry key="IDEA_MODULE" value="2" />
+          <entry key="JAVA" value="294" />
           <entry key="JSP" value="1" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="16" />
+          <entry key="XML" value="29" />
         </counts>
       </usages-collector>
     </session>
@@ -118,91 +184,102 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/charSimilarity/Test1.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3925">
+            <state relative-caret-position="9538">
+              <caret line="508" selection-start-line="508" selection-end-line="508" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="2275" column="38" selection-start-line="2275" selection-start-column="38" selection-end-line="2275" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/TreeCluster.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-144">
+              <caret line="420" selection-start-line="420" selection-end-line="420" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/List.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4066">
+              <caret line="237" column="12" selection-start-line="237" selection-start-column="12" selection-end-line="237" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/Integer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/function/Function.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/WordDictionary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+              <folding>
+                <element signature="e#566#567#0" expanded="true" />
+                <element signature="e#627#628#0" expanded="true" />
+                <element signature="e#685#686#0" expanded="true" />
+                <element signature="e#738#739#0" expanded="true" />
+                <element signature="e#785#786#0" expanded="true" />
+                <element signature="e#838#839#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/Interval.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/BoundedBuffer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MyStack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="55" column="20" lean-forward="true" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+            <state relative-caret-position="855">
+              <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/ConcurrentHashMapTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/Trie.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/ConcurrentTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/CyclicBarrierTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/concurrent/LinkedBlockingDeque.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/AbstractQueue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/AbstractCollection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="99" column="12" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Queue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="143" column="17" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/CallableTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="456">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -224,7 +301,17 @@
       <find>append</find>
       <find>sumNumbers</find>
       <find>pathSumm</find>
+      <find>segment</find>
+      <find>fullJustify</find>
+      <find>main</find>
+      <find>solve</find>
+      <find>twoSum</find>
+      <find>u</find>
+      <find>searchMatrix</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -232,44 +319,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/data/nio-data.txt" />
-        <option value="$PROJECT_DIR$/src/main/resources/tem.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/nio/FileChannelTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ebimatch/BiOrgDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ebimatch/AlUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/SynchronizedAndLockCompare/TestTemplate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/SynchronizedAndLockCompare/AtomicTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/SynchronizedAndLockCompare/LockTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/SynchronizedAndLockCompare/SyncTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/SynchronizedAndLockCompare/TestSyncMethods.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/concurrent/BoundedBuffer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/EasyProblemSolution.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/TreeCluster.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/JVM/HeapOOM.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/MD5/MD5Util.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/MD5/MD5Tools.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/RSA/RSAUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/RSA/JsonUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/RSA/JsonUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/RSA/LongSerializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/RSA/Base64Utils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/HttpUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/PicFileUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/WechatServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prince/RSA/RSATester.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/MergeImageUtils.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ImageUtilsTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/WechatActivityDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/WechatPrizeDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/WechatPrizeGrantRecordDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/WechatUserActShareRecordDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/MyBatisBaseMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/model/WechatActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/model/WechatPrize.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/model/WechatUserActShareRecord.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/MyBatisBaseDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/WechatActivityDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/WechatPrizeDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/WechatPrizeGrantRecordDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/WechatUserActShareRecordDao.java" />
@@ -282,7 +331,45 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wechat/wepay/MsgHandleService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPay.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/prince/concurrent/ImmutableTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/prince/concurrent/UnsafeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/WechatActivityDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/prince/concurrent/KillDeadlock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dataStructure/SeachTree.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dataStructure/Trie.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dataStructure/SeachTree" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dataStructure/SearchTree.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ML/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ML/TutorialDataset.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/designmode/strategy/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dataStructure/searchtree/SearchTree.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dataStructure/searchtree/STreeNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dataStructure/searchtree/SearchUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/DateUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/RandomListNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wechat/model/DbArticleInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wechat/xml/DbArticleInfoDAO.xml" />
+        <option value="$PROJECT_DIR$/../../projects/auto-db-api/auto-db-api/auto-db/core/data/src/main/resources/mybatis/mapper/basicdata/DbArticleInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/wechat/mapper/DbArticleInfoDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zouyu/Utils/BaseTool.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/LRUCache.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MinStack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tem/CommentService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tem/CommentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tem/PooledService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tem/UserInfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tem/UserInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tem/WateringService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/Trie.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/HardProblemSolution.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/WordDictionary.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MyStack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MyQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/ListNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/EasyProblemSolution.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/TreeCluster.java" />
       </list>
     </option>
   </component>
@@ -311,43 +398,30 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="nexus" />
+      </list>
+    </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="supif Maven Webapp" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Dependencies" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="supif Maven Webapp" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Profiles" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProfilesNode" />
-        </PATH_ELEMENT>
-      </PATH>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Profiles" type="6783ec58:MavenProjectsStructure$ProfilesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="supif Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="supif Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -365,7 +439,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -406,38 +480,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="prince" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="supif" type="b2602c69:ProjectViewProjectNode" />
-              <item name="supif" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="prince" type="462c0819:PsiDirectoryNode" />
-              <item name="charSimilarity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="supif" type="b2602c69:ProjectViewProjectNode" />
-              <item name="supif" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="prince" type="462c0819:PsiDirectoryNode" />
-              <item name="concurrent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="supif" type="b2602c69:ProjectViewProjectNode" />
-              <item name="supif" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="prince" type="462c0819:PsiDirectoryNode" />
-              <item name="concurrent" type="462c0819:PsiDirectoryNode" />
-              <item name="CyclicBarrierTest.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="dataStructure" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="supif" type="b2602c69:ProjectViewProjectNode" />
@@ -453,6 +496,16 @@
               <item name="supif" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="zouyu" type="462c0819:PsiDirectoryNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="supif" type="b2602c69:ProjectViewProjectNode" />
+              <item name="supif" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -460,27 +513,31 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/workspace/projects/supif/src/main/java/com/prince/RPC/HelloService.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539850905744" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555671979289" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../projects/auto-db-es" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../projects/xxl-job/xxl-job" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\codes\myExe\supif\src\main\java\com\wechat\xml" />
       <recent name="F:\workspace\projects\supif\src\main\webapp\WEB-INF\jsp" />
       <recent name="F:\workspace\projects\supif\src\main\java" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\codes\myExe\supif\src\main\java\com\tem" />
+      <recent name="D:\work\codes\myExe\supif\src\main\java\com\dataStructure" />
       <recent name="D:\work\codes\myExe\supif\src\main\java\com\wechat\wepay" />
       <recent name="F:\workspace\projects\supif\src\main\java\com\zouyu\lintcode" />
       <recent name="F:\workspace\projects\supif\src\main\java\com\zouyu\designmode\strateg" />
@@ -505,7 +562,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CyclicBarrierTest">
+  <component name="RunManager" selected="Application.MediumProblemSolution">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -539,13 +596,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BaseTool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.zouyu.Utils.BaseTool" />
+    <configuration name="EasyProblemSolution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zouyu.leetcode.EasyProblemSolution" />
       <module name="supif" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.zouyu.Utils.*" />
+          <option name="PATTERN" value="com.zouyu.leetcode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -553,13 +610,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CallableTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.prince.concurrent.CallableTest" />
+    <configuration name="HardProblemSolution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zouyu.leetcode.HardProblemSolution" />
       <module name="supif" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.prince.concurrent.*" />
+          <option name="PATTERN" value="com.zouyu.leetcode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -567,13 +624,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConcurrentHashMapTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.prince.concurrent.ConcurrentHashMapTest" />
+    <configuration name="MasterClassicCode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zouyu.leetcode.MasterClassicCode" />
       <module name="supif" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.prince.concurrent.*" />
+          <option name="PATTERN" value="com.zouyu.leetcode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -581,27 +638,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConcurrentTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.prince.concurrent.ConcurrentTest" />
+    <configuration name="MediumProblemSolution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zouyu.leetcode.MediumProblemSolution" />
       <module name="supif" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.prince.concurrent.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CyclicBarrierTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.prince.concurrent.CyclicBarrierTest" />
-      <module name="supif" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.prince.concurrent.*" />
+          <option name="PATTERN" value="com.zouyu.leetcode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -616,6 +659,20 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.prince.java8.Optional.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Trie" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.zouyu.leetcode.Trie" />
+      <module name="supif" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.zouyu.leetcode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -804,19 +861,19 @@
     <list>
       <item itemvalue="Application.OptionalTest" />
       <item itemvalue="Tomcat Server.mytomcat" />
-      <item itemvalue="Application.BaseTool" />
-      <item itemvalue="Application.CallableTest" />
-      <item itemvalue="Application.ConcurrentHashMapTest" />
-      <item itemvalue="Application.ConcurrentTest" />
-      <item itemvalue="Application.CyclicBarrierTest" />
+      <item itemvalue="Application.MediumProblemSolution" />
+      <item itemvalue="Application.EasyProblemSolution" />
+      <item itemvalue="Application.HardProblemSolution" />
+      <item itemvalue="Application.MasterClassicCode" />
+      <item itemvalue="Application.Trie" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CyclicBarrierTest" />
-        <item itemvalue="Application.ConcurrentTest" />
-        <item itemvalue="Application.ConcurrentHashMapTest" />
-        <item itemvalue="Application.CallableTest" />
-        <item itemvalue="Application.BaseTool" />
+        <item itemvalue="Application.MediumProblemSolution" />
+        <item itemvalue="Application.MasterClassicCode" />
+        <item itemvalue="Application.EasyProblemSolution" />
+        <item itemvalue="Application.HardProblemSolution" />
+        <item itemvalue="Application.Trie" />
       </list>
     </recent_temporary>
   </component>
@@ -928,7 +985,59 @@
       <workItem from="1538027228079" duration="10593000" />
       <workItem from="1539053687202" duration="5649000" />
       <workItem from="1539152324195" duration="2770000" />
-      <workItem from="1539849702649" duration="1203000" />
+      <workItem from="1539849702649" duration="3991000" />
+      <workItem from="1539918956845" duration="1881000" />
+      <workItem from="1540172063587" duration="10289000" />
+      <workItem from="1541381922901" duration="1547000" />
+      <workItem from="1541659364537" duration="4503000" />
+      <workItem from="1541744175967" duration="477000" />
+      <workItem from="1541744970888" duration="743000" />
+      <workItem from="1541988151544" duration="2734000" />
+      <workItem from="1542182593352" duration="1912000" />
+      <workItem from="1542191992214" duration="675000" />
+      <workItem from="1542263013772" duration="968000" />
+      <workItem from="1542269768164" duration="3469000" />
+      <workItem from="1542591069320" duration="1887000" />
+      <workItem from="1542857420570" duration="1720000" />
+      <workItem from="1543305423043" duration="266000" />
+      <workItem from="1543312202762" duration="2273000" />
+      <workItem from="1543376752416" duration="1746000" />
+      <workItem from="1543991672809" duration="1058000" />
+      <workItem from="1545204172005" duration="18187000" />
+      <workItem from="1545442568816" duration="19021000" />
+      <workItem from="1545553892654" duration="3572000" />
+      <workItem from="1545615729012" duration="3015000" />
+      <workItem from="1545812681828" duration="732000" />
+      <workItem from="1545902468943" duration="6230000" />
+      <workItem from="1545991505482" duration="10851000" />
+      <workItem from="1546136043836" duration="28698000" />
+      <workItem from="1546929401938" duration="12431000" />
+      <workItem from="1547119586373" duration="899000" />
+      <workItem from="1547456834515" duration="10472000" />
+      <workItem from="1547690258996" duration="1364000" />
+      <workItem from="1548225150188" duration="4917000" />
+      <workItem from="1548740506493" duration="29464000" />
+      <workItem from="1548990799681" duration="1001000" />
+      <workItem from="1548992686146" duration="3831000" />
+      <workItem from="1550131401591" duration="590000" />
+      <workItem from="1550470616629" duration="5531000" />
+      <workItem from="1552192546374" duration="5560000" />
+      <workItem from="1552268020941" duration="18644000" />
+      <workItem from="1552442069949" duration="1634000" />
+      <workItem from="1552445890178" duration="2365000" />
+      <workItem from="1552456386360" duration="27739000" />
+      <workItem from="1552902836824" duration="1238000" />
+      <workItem from="1552966479441" duration="586000" />
+      <workItem from="1552980602369" duration="58157000" />
+      <workItem from="1553478105918" duration="78161000" />
+      <workItem from="1554083314221" duration="37767000" />
+      <workItem from="1554370955852" duration="1821000" />
+      <workItem from="1554693245438" duration="313000" />
+      <workItem from="1554711076667" duration="2778000" />
+      <workItem from="1554964297285" duration="579000" />
+      <workItem from="1555569849899" duration="1006000" />
+      <workItem from="1555659912273" duration="1472000" />
+      <workItem from="1555921731004" duration="792000" />
     </task>
     <task id="LOCAL-00001" summary="新提交">
       <created>1533794056387</created>
@@ -937,13 +1046,17 @@
       <option name="project" value="LOCAL" />
       <updated>1533794056387</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="新提交">
+      <created>1539851014329</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1539851014329</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MergeImageUtils - 2018.09.07 at 11h 15m 46s.xml">
-      <configuration name="MergeImageUtils" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ImageUtilsTest - 2018.09.07 at 11h 30m 14s.xml">
       <configuration name="ImageUtilsTest" configurationId="JUnit" />
     </history-entry>
@@ -971,9 +1084,12 @@
     <history-entry file="ImageUtilsTest_testAddTextWeatermark - 2018.09.07 at 11h 41m 58s.xml">
       <configuration name="ImageUtilsTest.testAddTextWeatermark" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ImmutableTest_testGuavaImmutable - 2018.10.18 at 16h 52m 38s.xml">
+      <configuration name="ImmutableTest.testGuavaImmutable" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="858578000" />
+    <option name="totallyTimeSpent" value="1300932000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -988,7 +1104,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49295774" visible="true" weight="0.17700455" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49295774" visible="true" weight="0.19742814" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Nl-Palette" order="2" />
       <window_info id="Designer" order="3" />
@@ -999,30 +1115,30 @@
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49061662" visible="true" weight="0.23481117" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.38327906" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49061662" weight="0.23809524" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.494705" weight="0.38916257" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32887402" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5093834" side_tool="true" weight="0.36794582" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49746192" weight="0.41150922" />
-      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.32911393" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.21389794" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32911393" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.505295" side_tool="true" weight="0.20032841" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49746192" weight="0.1904762" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.32840723" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.24958949" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32840723" />
       <window_info anchor="bottom" id="Spring" order="12" />
-      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32882884" />
+      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32840723" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Properties" order="4" />
-      <window_info anchor="right" id="Database" order="5" weight="0.32889125" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32829046" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32995737" />
-      <window_info anchor="right" id="Maven Projects" order="10" weight="0.2249467" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32980332" />
+      <window_info anchor="right" id="Maven Projects" order="10" weight="0.12934947" />
       <window_info anchor="right" id="Key Promoter" order="11" weight="0.32919255" />
     </layout>
     <layout-to-restore>
@@ -1120,6 +1236,120 @@
           <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/UnsafeTest.java</url>
+          <line>16</line>
+          <properties />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/KillDeadlock.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../../../tools/javaml-0.1.7/javaml-0.1.7.jar!/net/sf/javaml/classification/AbstractClassifier.class</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ML/Main.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/observer/LiSi.java</url>
+          <line>11</line>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java</url>
+          <line>1060</line>
+          <properties />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java</url>
+          <line>1228</line>
+          <properties />
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java</url>
+          <line>1314</line>
+          <properties />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java</url>
+          <line>1352</line>
+          <properties />
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MinStack.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java</url>
+          <line>1568</line>
+          <properties />
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/EasyProblemSolution.java</url>
+          <line>712</line>
+          <properties />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java</url>
+          <line>353</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/Trie.java</url>
+          <line>71</line>
+          <properties />
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java</url>
+          <line>1766</line>
+          <properties />
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java</url>
+          <line>470</line>
+          <properties />
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java</url>
+          <line>499</line>
+          <properties />
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java</url>
+          <line>2198</line>
+          <properties />
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java</url>
+          <line>2220</line>
+          <properties />
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -1127,354 +1357,322 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>queue.peek()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/MD5/MD5Util.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/model/DbArticleInfoExample.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/model/DbArticleInfo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/mapper/MyBatisBaseDao.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/xml/DbArticleInfoDAO.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/mapper/DbArticleInfoDAO.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/mapper/DbArticleWordTrainDAO.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ML/TutorialDataset.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="293">
+          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/springevent/Client.java">
+    <entry file="file://$PROJECT_DIR$/../../projects/auto-db-api/auto-db-api/auto-db/core/data/src/main/resources/mybatis/mapper/basicdata/DbArticleInfoMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="67" lean-forward="true" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
+        <state relative-caret-position="4693">
+          <caret line="247" column="36" selection-start-line="247" selection-start-column="36" selection-end-line="247" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/state/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/state/ClosingState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/state/LiftState.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/Utils/BaseTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/state/OpeningState.java">
+    <entry file="file://$PROJECT_DIR$/supif.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/jre/lib/rt.jar!/sun/util/PreHashedMap.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/stream/Stream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="10640">
+          <caret line="606" column="6" selection-start-line="606" selection-start-column="6" selection-end-line="606" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/state/Context.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/Stack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        <state relative-caret-position="1064">
+          <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/ResponsibilityChain/IWomen.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/Vector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="9671">
+          <caret line="557" column="29" selection-start-line="557" selection-start-column="29" selection-end-line="557" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/ResponsibilityChain/Women.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/PriorityQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        <state relative-caret-position="10336">
+          <caret line="586" column="13" selection-start-line="586" selection-start-column="13" selection-end-line="586" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/ResponsibilityChain/Husband.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/LRUCache.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="456">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/ResponsibilityChain/Son.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="4655">
+          <caret line="271" column="6" selection-start-line="271" selection-start-column="6" selection-end-line="271" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/ResponsibilityChain/Father.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/springevent/MyApplicationEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="133">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/ResponsibilityChain/Handler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/ResponsibilityChain/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/visitor/TotalVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/visitor/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/springevent/MyApplicationListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/visitor/IShowVisitor.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/AbstractCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state relative-caret-position="5985">
+          <caret line="342" selection-start-line="342" selection-end-line="342" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/visitor/ITotalVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tem/CommentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state relative-caret-position="19">
+          <caret line="12" column="19" selection-end-line="100" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/strategy/IStrategy.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tem/CommentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state relative-caret-position="19">
+          <caret line="163" column="7" selection-end-line="513" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/strategy/SecondStrategy.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="54701">
+          <caret line="2950" column="23" selection-start-line="2950" selection-start-column="23" selection-end-line="2950" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/strategy/ThirdStrategy.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tem/PooledService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="418">
+          <caret line="22" column="15" selection-end-line="114" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/strategy/FirstStrategy.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tem/UserInfoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="475">
+          <caret line="25" column="15" selection-end-line="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/visitor/CommonEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/visitor/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/visitor/IVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tem/UserInfoService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <caret line="6" column="19" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/visitor/Manager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tem/WateringService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="18" column="15" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="15" />
+        <state relative-caret-position="627">
+          <caret line="33" column="57" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/visitor/ShowVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dataStructure/Trie.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="-133">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/strategy/Context.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/function/Supplier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="115">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPay.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/ref/Reference.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="40" lean-forward="true" selection-end-line="688" />
+        <state relative-caret-position="235">
+          <caret line="253" column="23" selection-start-line="253" selection-start-column="23" selection-end-line="253" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/wepay/IWXPayDomain.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        <state relative-caret-position="140">
+          <caret line="181" column="31" selection-start-line="181" selection-start-column="31" selection-end-line="181" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayRequest.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/ThreadLocal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="-4059">
+          <caret line="160" column="39" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/wepay/MsgHandleService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/HardProblemSolution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2340">
-          <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+        <state relative-caret-position="320">
+          <caret line="556" column="95" selection-start-line="556" selection-start-column="95" selection-end-line="556" selection-end-column="95" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/d.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/ListNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2790">
-          <caret line="111" column="65" selection-start-line="111" selection-start-column="65" selection-end-line="111" selection-end-column="65" />
+        <state relative-caret-position="171">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MyQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MinStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/EasyProblemSolution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="18924">
+          <caret line="998" selection-start-line="998" selection-end-line="998" />
+          <folding>
+            <element signature="e#21920#21921#0" expanded="true" />
+            <element signature="e#21963#21964#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayConstants.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/model/DealerMain.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/xml/DealerMainDAO.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        <state relative-caret-position="9538">
+          <caret line="508" selection-start-line="508" selection-end-line="508" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayReport.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="4066">
+          <caret line="237" column="12" selection-start-line="237" selection-start-column="12" selection-end-line="237" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wechat/wepay/WXPayXmlUtil.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="532">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/Utils/BaseTool.java">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/function/Function.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="323">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/WordDictionary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-900" />
+        <state relative-caret-position="456">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding>
+            <element signature="e#566#567#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/charSimilarity/Test1.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/Interval.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3925">
+        <state relative-caret-position="95">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/CallableTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MyStack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        <state relative-caret-position="855">
+          <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/BoundedBuffer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/Trie.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="55" column="20" lean-forward="true" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+        <state relative-caret-position="456">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/concurrent/LinkedBlockingDeque.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+        <state relative-caret-position="223">
+          <caret line="2275" column="38" selection-start-line="2275" selection-start-column="38" selection-end-line="2275" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Queue.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/TreeCluster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="143" column="17" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/AbstractQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/AbstractCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="99" column="12" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/ConcurrentHashMapTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/ConcurrentTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/concurrent/CyclicBarrierTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+        <state relative-caret-position="-144">
+          <caret line="420" selection-start-line="420" selection-end-line="420" />
         </state>
       </provider>
     </entry>
@@ -1490,6 +1688,17 @@
               <list>
                 <option value="0.2" />
                 <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>
@@ -1537,7 +1746,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

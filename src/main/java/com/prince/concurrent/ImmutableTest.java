@@ -1,6 +1,7 @@
 package com.prince.concurrent;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import org.junit.Test;
@@ -55,6 +56,14 @@ public class ImmutableTest {
 
         ImmutableList<String> imOflist = ImmutableList.of("peida", "jerry", "harry");
         System.out.println("imOflist：" + imOflist);
+
+        System.out.println("==============================");
+        ImmutableMap.Builder<String,String> builder = new ImmutableMap.Builder<>();
+        builder.put("hah","hh");
+        builder.put("zouy","shuai");
+        ImmutableMap<String, String> build = builder.build();
+        build.forEach((k,v)-> System.out.println(k+":"+v));
+
 
         ImmutableSortedSet<String> imSortList = ImmutableSortedSet.of("a", "b", "c", "a", "d", "b");
         System.out.println("imSortList：" + imSortList);

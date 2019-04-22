@@ -7,4 +7,11 @@ public class ListNode {
     ListNode(int x) {
         val = x;
     }
+
+    public void pri(){
+        System.out.print(val+" ");
+        if(next != null){
+            next.pri();
+        }
+    }
 }

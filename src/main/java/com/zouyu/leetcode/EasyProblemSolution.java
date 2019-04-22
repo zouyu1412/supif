@@ -1,9 +1,6 @@
 package com.zouyu.leetcode;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 import static java.lang.Math.abs;
 
@@ -12,11 +9,7 @@ import static java.lang.Math.abs;
  */
 public class EasyProblemSolution {
 
-    public static void main(String[] args) {
-        System.out.println(new EasyProblemSolution().countAndSay(4));
-    }
-
-    public int[] twoSum(int[] nums, int target) {
+    public int[] twoSumI(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(target - nums[i])) {
@@ -327,5 +320,696 @@ public class EasyProblemSolution {
         return re.next;
     }
 
+    //杨辉三角
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> preList = new ArrayList<>();
+        while(numRows-->0){
+            List<Integer> curList = new ArrayList<>();
+            if(preList.isEmpty()){
+                curList.add(1);
 
+            }else{
+                curList.add(1);
+                for(int i=0;i<preList.size()-1;i++){
+                    curList.add(preList.get(i)+preList.get(i+1));
+                }
+                curList.add(1);
+            }
+            result.add(curList);
+            preList = curList;
+        }
+        return result;
+    }
+
+    //寻找最短路径   2-> 3 -> 5 -> 1 = 11
+    //     [2],
+    //    [3,4],
+    //   [6,5,7],
+    //  [4,1,8,3]
+    //递归方式 ：超时     自上而下，求每个位置的最优解，然后遍历最后一行 取最小值即可
+    public int minimumTotal(List<List<Integer>> triangle) {
+        if(triangle == null || triangle.size() == 0){
+            return 0;
+        }
+        int[][] dp = new int[triangle.size()][triangle.size()];
+        for(int i=0;i<triangle.size();i++){
+            for(int j=0;j<=i;j++){
+                dp[i][j] = triangle.get(i).get(j);
+            }
+        }
+        for(int i = 1;i<triangle.size();i++){
+            for(int j = 0;j<=i;j++){
+                if(j==0 || j==i){
+                    dp[i][j] += dp[i-1][j==0?0:i-1];
+                }else {
+                    dp[i][j] += Math.min(dp[i-1][j-1],dp[i-1][j]);
+                }
+            }
+        }
+        int result = Integer.MAX_VALUE;
+        for(int i=0;i<triangle.get(triangle.size()-1).size();i++){
+            result = Math.min(dp[triangle.size()-1][i],result);
+        }
+        return result;
+    }
+//    public int minimumTotal(List<List<Integer>> triangle) {
+//        if(triangle == null || triangle.size() == 0){
+//            return 0;
+//        }
+//        Integer firstVal = triangle.get(0).get(0);
+//        if(triangle.size()==1){
+//            return firstVal;
+//        }
+//        return recu(triangle,firstVal,0,1,triangle.size());
+//    }
+//    private int recu(List<List<Integer>> tri,int curVal,int ind,int row,int height){
+//        List<Integer> integers = tri.get(row);
+//        if(row == height-1){
+//            return curVal+Math.min(integers.get(ind),integers.get(ind+1));
+//        }
+//        return Math.min(recu(tri,curVal+integers.get(ind),ind,row+1,height),
+//                recu(tri,curVal+integers.get(ind+1),ind+1,row+1,height));
+//    }
+
+    //Best Time to Buy and Sell Stock 一次买卖
+    public int maxProfit(int[] prices) {
+        if(prices == null || prices.length == 0) return 0;
+        int result = Integer.MIN_VALUE;
+        int curMin = Integer.MAX_VALUE;
+        for(int i=0;i<prices.length;i++){
+            curMin = Math.min(prices[i],curMin);
+            result = Math.max(prices[i]-curMin,result);
+        }
+        return result;
+    }
+
+    //Best Time to Buy and Sell Stock II  多次买卖
+    public int maxProfit2(int[] prices) {
+        if(prices == null || prices.length <= 1) return 0;
+        int result = 0;
+        int curMin = prices[0];
+        int curVal = 0;
+        for(int i=1;i<prices.length;i++){
+            if(prices[i]>=prices[i-1]){
+                curVal = prices[i]-curMin;
+            }else{
+                curMin = prices[i];
+                result += curVal;
+                curVal = 0;
+            }
+        }
+        result += curVal;
+        return result;
+    }
+
+    //Best Time to Buy and Sell Stock III  k次买卖
+    public int maxProfit3(int[] prices,int k) {
+        if(k == 0 || prices == null || prices.length < 2){
+            return 0;
+        }
+        Queue<Integer> queue = new PriorityQueue<>((o1,o2)-> o2.compareTo(o1));
+        int curProfit = 0;
+        int curMin = prices[0];
+        for(int i=1;i<prices.length;i++){
+            int tem = prices[i];
+            if(tem < curMin){
+                curMin = tem;
+                if(curProfit > 0){
+                    queue.offer(curProfit);
+                    curProfit = 0;
+                }
+            }else{
+                curProfit = tem - curMin;
+            }
+        }
+        return 0;
+    }
+//    大神代码 两次机会
+//    public int maxProfit(int[] prices) {
+//        if (prices == null || prices.length <= 1) return 0;
+//        int len = prices.length;
+//        int[] dp = new int[5];
+//        for (int i = len - 1; i >= 0; i--) {
+//            dp[4] = Math.max(dp[4], dp[3] - prices[i]);//have (2 buy, 2 sell) left
+//            dp[3] = Math.max(dp[3], dp[2] + prices[i]);//have (1 buy, 2 sell) left
+//            dp[2] = Math.max(dp[2], dp[1] - prices[i]);//have (1 buy, 1 sell) left
+//            dp[1] = Math.max(dp[1], prices[i]);//have (0 buy, 1 sell) left
+//            //have (0 buy, 0 sell) left --> dp[0] = 0; no need to update value
+//        }
+//        return Math.max(dp[2], dp[4]); //slect the max of 1 transaction and 2 transactions
+//    }
+
+    //链表成环判断
+    public boolean hasCycle(ListNode head) {
+        if(head == null){
+            return false;
+        }
+        ListNode node1 = head;
+        ListNode node2 = head;
+        while(node1.next != null && node2.next != null && node2.next.next != null){
+            node1 = node1.next;
+            node2 = node2.next.next;
+            if(node1 == node2){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //侦测环开始的索引，否则返回空
+    public ListNode detectCycle(ListNode head) {
+        List<ListNode> list = new ArrayList<>();
+        if(head == null){
+            return null;
+        }
+        while(head != null){
+            if(list.contains(head)){
+                return head;
+            }else {
+                list.add(head);
+            }
+            head = head.next;
+        }
+        return null;
+    }
+
+    /**
+     * 回文判断 "A man, a plan, a canal: Panama"： true
+     * @param s
+     * @return
+     */
+    public boolean isPalindrome(String s) {
+        int start = 0;
+        int end = s.length()-1;
+        while(start<end){
+            while(!isLegal(s.charAt(start)) && start < end) start++;
+            while(!isLegal(s.charAt(end)) && start < end) end--;
+            if(Character.toLowerCase(s.charAt(start)) != Character.toLowerCase(s.charAt(end))){
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+    private boolean isLegal(char ch){
+        return ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122) || (ch >= 48 && ch <= 57));
+    }
+
+    /**
+     * 主要的数 二分之一
+     * @param nums
+     * @return
+     */
+    public int majorityElement(int[] nums) {
+        if(nums == null || nums.length == 0) return 0;
+        int count = 1;
+        int result = nums[0];
+        for(int i=1;i<nums.length;i++){
+            if(nums[i] == result){
+                count++;
+            }else if(count == 0){
+                count++;
+                result = nums[i];
+            }else {
+                count--;
+            }
+        }
+        return result;
+    }
+
+    /**
+     *     1 -> A
+     *     2 -> B
+     *     3 -> C
+     *     ...
+     *     26 -> Z
+     *     27 -> AA
+     *     28 -> AB
+     * @param n
+     * @return
+     */
+    public String convertToTitle(int n) {
+        int high = n / 26;
+        int low = n%26;
+        if(low == 0 && high != 0){
+            high--;
+            low=26;
+        }
+        char c = (char) (low + 'A' - 1);
+        return (high == 0?"":convertToTitle(high))+c;
+    }
+    //上题逆向
+    public int titleToNumber(String s) {
+        if(s == null || s.length() == 0){
+            return 0;
+        }
+        int len = s.length();
+        char c = s.charAt(0);
+        int val = c-'A'+1;
+        double pow = Math.pow(26, len - 1);
+        int fact = (int)pow;
+        int curVal = val*fact;
+        return curVal+titleToNumber(s.substring(1,s.length()));
+    }
+
+    /**
+     * 寻找两个链表汇入点
+     * @param headA
+     * @param headB
+     * @return
+     */
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        //boundary check
+        if(headA == null || headB == null) return null;
+        ListNode a = headA;
+        ListNode b = headB;
+        //if a & b have different len, then we will stop the loop after second iteration
+        while( a != b){
+            //for the end of first iteration, we just reset the pointer to the head of another linkedlist
+            a = a == null? headB : a.next;
+            b = b == null? headA : b.next;
+        }
+        return a;
+    }
+
+    /**
+     * 两数和
+     * @param numbers
+     * @param target
+     * @return
+     */
+    public int[] twoSumII(int[] numbers, int target) {
+        int le = 0,ri = numbers.length-1;
+        while(ri > le){
+            if(numbers[ri]+numbers[le]>target){
+                ri --;
+            }else if(numbers[ri]+numbers[le]<target){
+                le ++;
+            }else {
+                return new int[]{le+1,ri+1};
+            }
+        }
+        return null;
+    }
+
+    /**
+     * BST 树是否存在两叶子和为target
+     * @param root
+     * @param k
+     * @return
+     */
+    public boolean findTarget(TreeCluster.TreeNode root, int k) {
+        final Map<Integer,Integer> map = new HashMap<>();
+        return findInBST(map,root,k);
+    }
+
+    private boolean findInBST(Map<Integer, Integer> map, TreeCluster.TreeNode node, int k) {
+        if(node == null){
+            return false;
+        }
+        int curVal = node.val;
+        if(map.containsKey(curVal)){
+            return true;
+        }else {
+            map.put(k-curVal,curVal);
+            return findInBST(map,node.left,k) || findInBST(map,node.right,k);
+        }
+    }
+
+    /**
+     * 10111 -> 11101 翻转二进制数  输出结果整数
+     * @param n
+     * @return
+     */
+    public int reverseBits(int n) {
+        int re = 0;
+        for(int i=0;i<32;i++){
+            re += n&1;
+            n = n >> 1;
+            if(i<31) {
+                re = re << 1;
+            }
+        }
+        return re;
+    }
+
+    /**
+     * 强盗抢劫
+     * @param nums
+     * @return
+     */
+    public int rob(int[] nums) {
+        if(nums == null || nums.length == 0) return 0;
+        if(nums.length == 1) return nums[0];
+        if(nums.length == 2) return Math.max(nums[0],nums[1]);
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0],nums[1]);
+        for(int i=2;i<nums.length;i++){
+            dp[i] = Math.max(nums[i]+dp[i-2],dp[i-1]);
+        }
+        return dp[nums.length-1];
+    }
+
+    /** TODO 牛掰
+     * 旋转数组
+     * Input: [1,2,3,4,5,6,7] and k = 3
+     * Output: [5,6,7,1,2,3,4]
+     */
+    public void rotate(int[] nums, int k) {
+        if(nums == null || nums.length == 0){
+            return;
+        }
+        k = k%nums.length;
+        int count = 0;
+        for(int i=0;count<nums.length;i++){
+            int cur = i;
+            int preVal = nums[i];
+            do{
+                int nextInd = (cur+k)%nums.length;
+                int tem = nums[nextInd];
+                nums[nextInd] = preVal;
+                preVal = tem;
+                cur = nextInd;
+                count++;
+            }while (cur != i);
+        }
+    }
+
+    /** 是否是 开心数
+     * Input: 19
+     * Output: true
+     * Explanation:
+     * 1^2 + 9^2 = 82
+     * 8^2 + 2^2 = 68
+     * 6^2 + 8^2 = 100
+     * 1^2 + 0^2 + 0^2 = 1
+     * @param n
+     * @return
+     */
+    public boolean isHappy(int n) {
+        Set<Integer> set = new HashSet<>();
+        int curVal = n;
+        do{
+            curVal = getDigitSquareSum(curVal);
+            if(curVal == 1){
+                return true;
+            }
+        }while (set.add(curVal));
+        return false;
+    }
+    private int getDigitSquareSum(int x){
+        int sum = 0;
+        while(x != 0){
+            sum+=Math.pow((double)x%10,2);
+            x = x/10;
+        }
+        return sum;
+    }
+
+    /**
+     * 删除链表元素
+     * Input: 1-2-3-3-4  3
+     * Output: 1-2-4
+     * @param head
+     * @param val
+     * @return
+     */
+    public ListNode removeElements(ListNode head, int val) {
+       ListNode n1 = new ListNode(0);
+       n1.next = head;
+       ListNode pre = n1;
+       ListNode cur = head;
+       while(cur != null){
+           if(cur.val == val){
+               pre.next = cur.next;
+               cur = cur.next;
+           }else {
+               pre = cur;
+               cur = cur.next;
+           }
+       }
+       return n1.next;
+    }
+
+    /** TODO 递推
+     * 素数个数
+     * @param n
+     * @return
+     */
+    public int countPrimes(int n) {
+        boolean[] notPrime = new boolean[n];
+        int count = 0;
+        for(int i = 2; i < n; i++) {
+            if(!notPrime[i]) {
+                count++;
+                for(int j = i; j <= (n-1) / i; j++) {
+                    int v = i * j;
+                    notPrime[v] = true;
+                }
+            }
+        }
+        return count;
+    }
+
+    /**
+     * 字符串同形判断
+     *
+     * Input: s = "egg", t = "add"
+     * Output: true
+     *
+     * Input: s = "paper", t = "title"
+     * Output: true
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean isIsomorphic(String s, String t) {
+        return fun(s,t) && fun(t,s);
+    }
+    private boolean fun(String s,String t){
+        Map<Character,Character> map = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            char ch1 = s.charAt(i);
+            char ch2 = t.charAt(i);
+            if(map.containsKey(ch1)){
+                char value = map.get(ch1);
+                if(ch2 != value){
+                    return false;
+                }
+            }else {
+                map.put(ch1,ch2);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 重复元素1
+     * TODO 空间复杂度较大
+     * 判断是否包含重复元素
+     * @param nums
+     * @return
+     */
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for(int x:nums){
+            if(!set.add(x)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 重复元素2
+     * k距离范围内 是否有重复元素
+     * @param nums
+     * @param k
+     * @return
+     */
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        if(nums == null || nums.length <=1){
+            return false;
+        }
+        for(int i=1;i<nums.length;i++){
+            int topLine = Math.max(i-k,0);
+            for(int j=i-1;j>=topLine;j--){
+                if(nums[j] == nums[i]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * TODO 大神代码
+     *     isPowerOfTwo(int n) {
+     *         if(n<=0) return false;
+     *         return !(n&(n-1));
+     *     }
+     * 判断n是否是2的指数值  1 2 4 8 16 32
+     * @param n
+     * @return
+     */
+    public boolean isPowerOfTwo(int n) {
+        if(n==0){
+            return false;
+        }
+        if(n == 1){
+            return true;
+        }
+        int x = n/2;
+        int y = n%2;
+        if(y!=0){
+            return false;
+        }
+        return isPowerOfTwo(x);
+    }
+
+    /**
+     * TODO 反转链表 然后对比
+     * 链表是否是循环
+     * @param head
+     * @return
+     */
+    public boolean isPalindrome(ListNode head) {
+        if(head == null || head.next == null){
+            return true;
+        }
+        ListNode fast=head;
+        ListNode slow=head;
+        ListNode pre=null;
+        while(fast != null && fast.next != null){
+            pre = slow;
+            slow =slow.next;
+            fast = fast.next.next;
+        }
+        pre.next = null;
+        slow = revNode(slow);
+        while(head != null && slow != null){
+            if(slow.val != head.val){
+                return false;
+            }
+            slow = slow.next;
+            head = head.next;
+        }
+        return true;
+    }
+
+    /**
+     * 翻转链表
+     * @param head
+     * @return
+     */
+    private ListNode revNode(ListNode head) {
+        ListNode pre = null;
+        while(head != null){
+            ListNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
+    }
+
+    /**
+     * 树的最小公共祖先
+     * @param root
+     * @param p
+     * @param q
+     * @return
+     */
+    public TreeCluster.TreeNode lowestCommonAncestor(TreeCluster.TreeNode root, TreeCluster.TreeNode p, TreeCluster.TreeNode q) {
+        if(root == null){
+            return null;
+        }
+        if(root.val == p.val || root.val == q.val){
+            return root;
+        }
+        if(p.val > root.val && root.val> q.val || p.val<root.val && root.val < q.val){
+            return root;
+        }
+        if(root.val > p.val && root.val > q.val){
+            return lowestCommonAncestor(root.left,p,q);
+        }else{
+            return lowestCommonAncestor(root.right,p,q);
+        }
+    }
+
+    /**
+     * 是否是同基乱序的字符串
+     * Input: s = "anagram", t = "nagaram"
+     * Output: true
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean isAnagram(String s, String t) {
+        int[] words = new int[26];
+        for(int i=0;i<s.length();i++){
+            words[s.charAt(i)-'a']++;
+        }
+        for(int i=0;i<t.length();i++){
+            words[t.charAt(i)-'a']--;
+        }
+        for(int i=0;i<26;i++){
+            if(words[i] != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    //TODO  下面的算法同样的思路，比我的要快
+    /**
+    public boolean isAnagram(String s, String t) {
+        int[] sarr = new int[128];
+        for(char temp: s.toCharArray()) sarr[temp] += 1;
+        for(char temp: t.toCharArray()) sarr[temp] -= 1;
+        for(int i: sarr)
+            if(i != 0) return false;
+        return true;
+    }*/
+
+    /**
+     * 寻找第三大的数
+     * @param nums
+     * @return
+     */
+    public int thirdMax(int[] nums) {
+        Set<Integer> set = new TreeSet<>((o1,o2)-> o2.compareTo(o1));
+        for(int x:nums){
+            set.add(x);
+        }
+        int count = 3;
+        int re = 0;
+        int max = Integer.MIN_VALUE;
+        for(Iterator<Integer> it = set.iterator();it.hasNext() && count>0;count--){
+            re = it.next();
+            max = Math.max(max,re);
+        }
+        if(nums.length < 3 || count > 0){
+            return max;
+        }
+        return re;
+    }
+
+    public static void main(String[] args) {
+        EasyProblemSolution easyProblemSolution = new EasyProblemSolution();
+//        easyProblemSolution.rotate(new int[]{1,2,3,4,5,6,7},3);
+
+//        System.out.println(easyProblemSolution.isHappy(19));
+        ListNode l1 = new ListNode(1);
+        ListNode l2 = new ListNode(2);
+        ListNode l3 = new ListNode(3);
+        l1.next = l2;
+        l2.next = l3;
+        l1.pri();
+        l1 = easyProblemSolution.revNode(l1);
+        System.out.println();
+        l1.pri();
+    }
 }

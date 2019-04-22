@@ -1,17 +1,13 @@
 package com.zouyu.leetcode;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.*;
 
 /**
  * Created by zouy-c on 2018/3/9.
  */
 public class HardProblemSolution {
-
-    public static void main(String[] args) {
-        //LeetCodeUtil.printListNode(new HardProblemSolution().reverseKGroup(LeetCodeUtil.intArrayToListNode(new int[]{1,2,3,4,5}),2));
-        new HardProblemSolution().insert(Arrays.asList(new Interval(1,5)),new Interval(6,8));
-
-    }
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int len1 = nums1.length;
@@ -317,5 +313,275 @@ public class HardProblemSolution {
             }
         }
         return (le-ls+1)*(re-rs+1);
+    }
+
+    //文章格式化
+    public List<String> fullJustify(String[] words, int maxWidth) {
+        int wordNum = words.length;
+        List<String> result = new ArrayList<>();
+        List<List<String>> list = new ArrayList<>();
+        int leftLength = maxWidth;
+        List<String> oneLineWords = new ArrayList<>();
+
+        for(int i=0;i<wordNum;i++){
+            String curStr = words[i];
+            if(oneLineWords.size()==0){
+                oneLineWords.add(curStr);
+                leftLength -= curStr.length();
+                if(i==wordNum-1){
+                    list.add(oneLineWords);
+                }
+                continue;
+            }
+            if(curStr.length()+1<=leftLength){
+                oneLineWords.add(curStr);
+                leftLength-=(curStr.length()+1);
+                if(i==wordNum-1){
+                    list.add(oneLineWords);
+                }
+            }else{
+                list.add(new ArrayList<>(oneLineWords));
+                oneLineWords = new ArrayList<>();
+                leftLength = maxWidth;
+                i--;
+            }
+        }
+        for(int i=0;i<list.size();i++){
+            String curLine = "";
+            List<String> cur = list.get(i);
+            if(i==list.size()-1){
+                for(int j=0;j<cur.size();j++){
+                    if(j==0){
+                        curLine += cur.get(j);
+                    }else {
+                        curLine += (" " + cur.get(j));
+                    }
+                }
+                while(curLine.length()<maxWidth){
+                    curLine+=" ";
+                }
+                result.add(curLine);
+            }else{
+                result.add(fillLineWithWord(curLine,cur,maxWidth));
+            }
+        }
+        return result;
+    }
+
+    private String fillLineWithWord(String curLine, List<String> cur, int maxWidth) {
+        StringBuilder sb = new StringBuilder();
+        if(cur.size()==1){
+            sb.append(cur.get(0));
+            while(sb.length()<maxWidth){
+                sb.append(" ");
+            }
+            return sb.toString();
+        }
+        int wLen = 0;
+        for(int i = 0;i<cur.size();i++){
+            wLen += cur.get(i).length();
+        }
+        int nullSize = maxWidth - wLen;
+        int r = nullSize/(cur.size()-1);
+        int d = nullSize%(cur.size()-1);
+        for(int i=0;i<cur.size();i++){
+            if(i == 0){
+                sb.append(cur.get(i));
+            }else {
+                int curNullSize = r + (i<=d?1:0);
+                for(int j=0;j<curNullSize;j++){
+                    sb.append(" ");
+                }
+                sb.append(cur.get(i));
+            }
+        }
+        return sb.toString();
+    }
+
+    //单词汉明距离 插入 替换 删除
+    public int minDistance(String word1, String word2) {
+        if(StringUtils.isEmpty(word1)){
+            return word2.length();
+        }
+        if(StringUtils.isEmpty(word2)){
+            return word1.length();
+        }
+        int[][] dp = new int[word1.length()+1][word2.length()+1];
+        for(int i = 1;i<dp.length;i++){
+            for(int j= 1;j<dp[0].length;j++){
+                if(word1.charAt(i-1) == word2.charAt(j-1)){
+                    dp[i][j] = 1+Math.min(dp[i-1][j],Math.min(dp[i][j-1],dp[i-1][j-1])-1);
+                }else{
+                    dp[i][j] = 1+Math.min(dp[i-1][j],Math.min(dp[i][j-1],dp[i-1][j-1]));
+                }
+            }
+        }
+        return dp[word1.length()][word2.length()];
+    }
+
+    /**
+     * 加血  掉血  只能往下 往右   求最少的初始血量
+     *  -2    3    -3
+     *  -5    -10   1
+     *  10    30    -5
+     * @param dungeon
+     * @return
+     */
+    public int calculateMinimumHP(int[][] dungeon) {
+        int row = dungeon.length;
+        int col = dungeon[0].length;
+        int[][] dp = new int[row][col];
+        dp[row-1][col-1] = Math.max(1-dungeon[row-1][col-1],1);
+        for(int i = row -2; i>=0; i--){
+            dp[i][col -1] = Math.max(dp[i+1][col-1] - dungeon[i][col-1],1);
+        }
+        for(int i = col -2; i>=0; i--){
+            dp[row-1][i] = Math.max(dp[row-1][i+1] - dungeon[row-1][i],1);
+        }
+        for(int i=row-2;i>=0;i--){
+            for(int j=col-2;j>=0;j--){
+                dp[i][j] = Math.max(Math.min(dp[i+1][j],dp[i][j+1])-dungeon[i][j],1);
+            }
+        }
+        return dp[0][0];
+    }
+
+    /**
+     * 求最大的夹缝   linear
+     * Input: [3,6,9,1]
+     * Output: 3
+     * Explanation: The sorted form of the array is [1,3,6,9], either
+     *              (3,6) or (6,9) has the maximum difference 3
+     * @param nums
+     * @return
+     */
+    public int maximumGap(int[] nums) {
+        if(nums == null || nums.length <=1){
+            return 0;
+        }
+        int len = nums.length;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int x:nums){
+            max = Math.max(max,x);
+            min = Math.min(min,x);
+        }
+        if(max == min){
+            return 0;
+        }
+        int bucketSize = (max-min)/len+1;
+        int bucketNum = (max-min)/bucketSize+1;
+        Bucket[] buckets = new Bucket[bucketNum];
+        for(int i=0;i<bucketNum;i++){
+            buckets[i] = new Bucket();
+        }
+        for(int i=0;i<len;i++){
+            int ind = (nums[i]-min)/bucketSize;
+            if(buckets[ind].isUsed()){
+                buckets[ind].setLeft(Math.min(nums[i],buckets[ind].getLeft()));
+                buckets[ind].setRight(Math.max(nums[i],buckets[ind].getRight()));
+            }else{
+                buckets[ind].setLeft(nums[i]);
+                buckets[ind].setRight(nums[i]);
+                buckets[ind].setUsed(true);
+            }
+        }
+        int answer = buckets[0].getRight()-buckets[0].getLeft();
+        int preRight = buckets[0].getRight();
+        for(int i=1;i<bucketNum;i++){
+            if(buckets[i].isUsed()){
+                answer = Math.max(buckets[i].getRight()-buckets[i].getLeft(),answer);
+                answer = Math.max(buckets[i].getLeft()-preRight,answer);
+                preRight = buckets[i].getRight();
+            }
+        }
+        return answer;
+    }
+    private class Bucket{
+        boolean isUsed;
+        int left;
+        int right;
+        public boolean isUsed() {
+            return isUsed;
+        }
+
+        public void setUsed(boolean used) {
+            isUsed = used;
+        }
+
+        public int getLeft() {
+            return left;
+        }
+
+        public void setLeft(int left) {
+            this.left = left;
+        }
+
+        public int getRight() {
+            return right;
+        }
+
+        public void setRight(int right) {
+            this.right = right;
+        }
+    }
+
+    /** TODO 接medium难度 课程1 2
+     * 课程3  [t,d] t->持续时间  d->多少天内完成课程   求最多可以完成多少门课程
+     * Input: [[100, 200], [200, 1300], [1000, 1250], [2000, 3200]]
+     * Output: 3
+     * @param courses
+     * @return
+     */
+    public int scheduleCourse(int[][] courses) {
+        Map<Integer,Integer> map = new TreeMap<>(Integer::compareTo);
+        Map<Integer,Map.Entry> courseMap = new HashMap<>();
+        boolean[] visit = new boolean[courses.length];
+        int maxDay = 0;
+        for(int i=0;i<courses.length;i++){
+            map.put(courses[i][1],courses[i][0]);
+            maxDay = Math.max(maxDay,courses[i][1]);
+        }
+        int ind = 1;
+        for(Map.Entry entry:map.entrySet()){
+            courseMap.put(ind++,entry);
+        }
+        int[][] dp = new int[courses.length+1][maxDay+1];
+        for(int i=1;i<=courses.length;i++){
+            Map.Entry entry = courseMap.get(i);
+            int dayLine = (int)entry.getKey();
+            int duration = (int)entry.getValue();
+            for(int j=1;j<=maxDay;j++){
+                if(j<=dayLine){
+                    if(duration<=j && !visit[i-1]){
+                        dp[i][j] = Math.max(Math.max(dp[i-1][j],dp[i][j-1]),dp[i][j-duration]+1);
+                        visit[i-1] = true;
+                    }else{
+                        dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]);
+                    }
+                }else{
+                    dp[i][j] = dp[i][dayLine];
+                }
+            }
+            pri(dp);
+
+        }
+
+        return dp[courses.length][maxDay];
+    }
+
+    public static void main(String[] args) {
+        //LeetCodeUtil.printListNode(new HardProblemSolution().reverseKGroup(LeetCodeUtil.intArrayToListNode(new int[]{1,2,3,4,5}),2));
+//        System.out.println(new HardProblemSolution().maximumGap(new int[]{3,6,9,1}));
+        System.out.println(new HardProblemSolution().scheduleCourse(new int[][]{{1,2},{4,15},{10,14},{20,32}}));
+//        (Arrays.asList(new Interval(1,5)),new Interval(6,8));
+
+    }
+
+    private void pri(int[][] x){
+        for(int i=0;i<x.length;i++){
+            System.out.println(Arrays.toString(x[i]));
+        }
+        System.out.println("======================");
     }
 }

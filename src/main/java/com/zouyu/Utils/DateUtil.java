@@ -1,11 +1,14 @@
 package com.zouyu.Utils;
 
-import com.google.common.collect.ImmutableList;
+
+import com.google.common.base.Strings;
+import org.springframework.util.CollectionUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -166,46 +169,43 @@ public class DateUtil {
         return cal.getTime();
     }
 
+
+
     public static void main(String[] args) {
-        //System.out.println(DateUtil.addMinuteOfHour(new Date(), 60, false));
-        //Tue Dec 12 11:55:22 CST 2017
-    	//System.out.println(DateUtil.addDayOfMonth(new Date(), 6, false));
-    	//Mon Dec 18 10:55:07 CST 2017
-        //System.out.println(DateUtil.startOfADay(new Date()));
-    	//Tue Dec 12 00:00:00 CST 2017
-        //System.out.println(DateUtil.toTime(new Date()));
-    	//10:53:46
-        //System.out.println(DateUtil.reverse2Date("2017-12-12 11:10:20"));
-        //Tue Dec 12 11:10:20 CST 2017
-    	//System.out.println(getIdByTime());
-    	//20171212105550
-//    	System.out.println(DateUtil.toFull(new Date()));
-//    	2017-12-12 10:57:32
-//    	System.out.println(DateUtil.toDate(new Date()));
-//    	2017-12-12
 
-//        System.out.println(new Si
-// mpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime()));
+      Calendar instance = Calendar.getInstance();
+        int year = instance.get(Calendar.YEAR);
+        int month = instance.get(Calendar.MONTH)+1;
+        int day = instance.get(Calendar.DAY_OF_MONTH);
+        System.out.println("-"+year+month+day);
+
+        Map<String,Integer> map = new HashMap<>();
+        map.put("s1",1);
+        map.put("s2",2);
+        map.put("s3",3);
+        map.put("s4",4);
+        String key1 = map.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getValue)).findFirst().get().getKey();
+        String key2 = map.entrySet().stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue())).findFirst().get().getKey();
+        String key3 = map.entrySet().stream().max((o1, o2) -> o1.getValue().compareTo(o2.getValue())).get().getKey();
+        String key4 = map.entrySet().stream().max((o1, o2) -> o2.getValue().compareTo(o1.getValue())).get().getKey();
+        System.out.println(key1);
+        System.out.println(key2);
+        System.out.println(key3);
+        System.out.println(key4);
 
 
-//        Date date = new Date();
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        System.out.println(sdf.format(date));
-//
-//        Calendar cal = Calendar.getInstance();
-//        cal.setTime(date);
-//        cal.set(Calendar.HOUR_OF_DAY,23);
-//        cal.set(Calendar.MINUTE,59);
-//        cal.set(Calendar.SECOND,59);
-//        System.out.println(cal.getTime());
+//        String  pattern = "^[0-9]+$";
+//        String  pattern = "^[A-Za-z][0-9]$";
+        String  pattern = "^[\u4E00-\u9FA5]$";
+//        String  pattern = "^[A-Za-z]{1,2}$";
 
-          Map<String,String> map = new HashMap<>();
-          String a = map.get("haha");
-          if(a==null){
-              map.put("haha","zouyu");
-          }
-        System.out.println(a);
-        System.out.println(map.get("haha"));
-
+        Pattern compile = Pattern.compile(pattern);
+        Matcher matcher = compile.matcher("含");
+        if(matcher.find()){
+            System.out.println("Found value"+matcher.group(0));
+//            System.out.println("Found value"+matcher.group(1));
+        }
     }
+
+
 }

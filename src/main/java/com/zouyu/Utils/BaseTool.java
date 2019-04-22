@@ -7,29 +7,11 @@ public class BaseTool {
 	
 	public static void main(String[] args) {
 
-//		Map<String,String> map = new HashMap<>();
-//		map.put("1","3");
-//		map.put("2","3");
-//		map.put("3","3");
-//		System.out.println(map.keySet().stream().filter(i -> i.startsWith("dasd")).count()+" jkj");
-//		printMap(map);
-		Map<String,String> map = new HashMap<>();
-		String s = "hhee---"+map.get("haha");
-		String[] split = s.split("---");
-		for(String ss:split) {
-			System.out.println(ss);
-		}
-		final List<Integer> list = new ArrayList<>();
-		list.add(1);
-		list.add(2);
-		list.add(2);
-		list.add(2);
-		System.out.println(list);
-
-		List<Integer> list1 = new ArrayList<>();
-		list1.add(3);
-		list.addAll(list1);
-		System.out.println(list);
+		Map<String,Integer> map = new HashMap<>();
+//		map.put("a",1);
+//		map.put("b",2);
+//		map.put("c",3);
+		System.out.println(map.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getValue)).limit(3).findFirst().get().getKey());
 	}
 
 	private static void printMap(Map map){

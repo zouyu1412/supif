@@ -416,6 +416,51 @@ public class TreeCluster {
         return checkBST(root.left) && checkBST(root.right);
     }
 
+    /**输出索引叶子的路径
+     * Input:
+     *    1
+     *  /   \
+     * 2     3
+     *  \
+     *   5
+     * Output: ["1->2->5", "1->3"]
+     * @param root
+     * @return
+     * TODO 大神代码
+     * public List<String> binaryTreePaths(TreeNode root) {
+     *         List<String> paths = new LinkedList<>();
+     *         if(root == null) return paths;
+     *         if(root.left == null && root.right == null){
+     *             paths.add(root.val+"");
+     *             return paths;
+     *         }
+     *          for (String path : binaryTreePaths(root.left)) {
+     *              paths.add(root.val + "->" + path);
+     *          }
+     *          for (String path : binaryTreePaths(root.right)) {
+     *              paths.add(root.val + "->" + path);
+     *          }
+     *          return paths;
+     *     }
+     */
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        if(root == null){
+            return result;
+        }
+        if(root.left == null && root.right == null){
+            result.add(String.valueOf(root.val));
+            return result;
+        }
+        List<String> subs = new ArrayList<>();
+        subs.addAll(binaryTreePaths(root.right));
+        subs.addAll(binaryTreePaths(root.left));
+        for(String s:subs){
+            result.add(root.val+"->"+s);
+        }
+        return result;
+    }
+
     //数组生成二叉树
     //TODO 没考虑null情况 null->Integer.MIN_VALUE ?
     private TreeNode toBiTree(int[] arr) {
@@ -440,6 +485,7 @@ public class TreeCluster {
         }
         return root;
     }
+
 
     public static void main(String[] args) {
         TreeCluster tc = new TreeCluster();

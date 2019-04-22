@@ -6,7 +6,7 @@ package com.zouyu.designmode.strategy;
 public class Client {
     public static void main(String[] args) {
         Context context;
-        System.out.println("遇见了小璇，我要加油，开始以下策略");
+        System.out.println("遇见了，我要加油，开始以下策略");
         context = new Context(new FirstStrategy());
         context.operate();
         context = new Context(new SecondStrategy());
