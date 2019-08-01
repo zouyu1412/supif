@@ -1,16 +1,13 @@
 package com.zouyu.leetcode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by zouy-c on 2018/6/12.
  */
 public class TreeCluster {
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left, right;
         TreeNode(int x) {
@@ -486,16 +483,121 @@ public class TreeCluster {
         return root;
     }
 
+    /**
+     * 求所有的左叶子之和
+     * Example:
+     *     3
+     *    / \
+     *   9  20
+     *     /  \
+     *    15   7
+     * There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+     * @param root
+     * @return
+     */
+    public int sumOfLeftLeaves(TreeNode root) {
+        if(root == null){
+            return 0;
+        }
+        int leftVal = getSumOfLeftLeaves(root.left, true);
+        int rightVal = getSumOfLeftLeaves(root.right, false);
+        return leftVal + rightVal;
+    }
+    private int getSumOfLeftLeaves(TreeNode node,boolean isLeft){
+        if(node == null){
+            return 0;
+        }
+        if(node.left == null && node.right == null){
+            if(isLeft) {
+                return node.val;
+            }else{
+                return 0;
+            }
+        }
+        int leftVal = 0;
+        int rightVal = 0;
+        if(node.left != null){
+            leftVal = getSumOfLeftLeaves(node.left,true);
+        }
+        if(node.right != null){
+            rightVal = getSumOfLeftLeaves(node.right,false);
+        }
+        return leftVal+rightVal;
+    }
+
 
     public static void main(String[] args) {
         TreeCluster tc = new TreeCluster();
-        TreeNode tree = tc.toBiTree(new int[]{4,9,0,5,1});
-        List<Integer> list = new ArrayList<>();
-        tc.inorderRec(list, tree);
-        System.out.println(tc.checkBST(tree));
-        System.out.println(list);
+        TreeNode tree = tc.toBiTree(new int[]{1,2,3,Integer.MIN_VALUE,Integer.MIN_VALUE,4,5});
+        String serialize = Codec.serialize(tree);
+        System.out.println(serialize);
+        TreeNode deserialize = Codec.deserialize(serialize);
 
-        System.out.println(tc.sumNumbers(tree));
+//        List<Integer> list = new ArrayList<>();
+//        tc.inorderRec(list, tree);
+//        System.out.println(tc.checkBST(tree));
+//        System.out.println(list);
+//
+//        System.out.println(tc.sumNumbers(tree));
 
     }
+
+    /**
+     * 树的序列话与反序列化 stateless无状态
+     */
+    public static class Codec {
+
+        // Encodes a tree to a single string.
+        public static String serialize(TreeNode root) {
+            StringBuilder sb = new StringBuilder();
+            Stack<TreeNode> stack = new Stack<>();
+            TreeNode node = root;
+            while(node != null || !stack.isEmpty()){
+                if(node != null){
+                    sb.append(node.val+" ");
+                    stack.push(node);
+                    node = node.left;
+                }else{
+                    sb.append("null ");
+                    node = stack.pop().right;
+                }
+            }
+            return sb.toString();
+        }
+
+        // Decodes your encoded data to tree.
+        public static TreeNode deserialize(String data) {
+            if(data == null || data.length()==0){
+                return null;
+            }
+            String[] split = data.split(" ");
+            if(split[0].equals("null")){
+                return null;
+            }
+            TreeNode root = new TreeNode(Integer.valueOf(split[0]));
+            TreeNode result = root;
+            Stack<TreeNode> stack = new Stack<>();
+            stack.push(result);
+            int i = 1;
+            while(i<split.length){
+                while(i<split.length && !split[i].equals("null")){
+                    result.left = new TreeNode(Integer.valueOf(split[i++]));
+                    result = result.left;
+                    stack.push(result);
+                }
+                while(i<split.length && split[i].equals("null")){
+                    result = stack.pop();
+                    i++;
+                }
+                if(i<split.length){
+                    result.right = new TreeNode(Integer.valueOf(split[i++]));
+                    result = result.right;
+                    stack.push(result);
+                }
+            }
+            return result;
+        }
+    }
 }
+
+

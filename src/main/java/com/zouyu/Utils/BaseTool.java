@@ -4,14 +4,59 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class BaseTool {
-	
-	public static void main(String[] args) {
 
-		Map<String,Integer> map = new HashMap<>();
-//		map.put("a",1);
-//		map.put("b",2);
-//		map.put("c",3);
-		System.out.println(map.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getValue)).limit(3).findFirst().get().getKey());
+	static class Pair{
+		int x;
+		int y;
+
+		public Pair(int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+
+		public int getX() {
+			return x;
+		}
+
+		public void setX(int x) {
+			this.x = x;
+		}
+
+		public int getY() {
+			return y;
+		}
+
+		public void setY(int y) {
+			this.y = y;
+		}
+
+		@Override
+		public String toString() {
+			return "Pair{" +
+					"x=" + x +
+					", y=" + y +
+					'}';
+		}
+	}
+
+	public static void main(String[] args) {
+		List<Long> autoHomeTrimIds = new ArrayList<>();
+		autoHomeTrimIds.add(1l);
+		autoHomeTrimIds.add(3l);
+		autoHomeTrimIds.add(66l);
+		String s = Arrays.toString(autoHomeTrimIds.toArray());
+		System.out.println(s);
+
+//		List<BigDecimal> list = new ArrayList<>();
+//		list.add(new BigDecimal("1.3"));
+//		list.add(new BigDecimal("1.2"));
+//		list.add(new BigDecimal("1.4"));
+//		BigDecimal bigDecimal = list.stream().min(BigDecimal::compareTo).get();
+//		BigDecimal bigDecimal2 = list.stream().max(BigDecimal::compareTo).get();
+//		BigDecimal subtract = bigDecimal.divide(bigDecimal2,3,2);
+//		System.out.println(subtract);
+//		System.out.println(bigDecimal);
+//		System.out.println(bigDecimal2);
 	}
 
 	private static void printMap(Map map){

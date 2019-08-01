@@ -1,7 +1,7 @@
 package com.zouyu.leetcode;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -2250,6 +2250,8 @@ public class MediumProblemSolution {
      * 有俩数出现一次 其他的出现两次  找出这俩数
      * Input:  [1,2,1,3,2,5]
      * Output: [3,5]
+     * 亦或1 为不同  最后两数该位有一个为0 一个为1   分成两组
+     * 两组 分别求亦或
      * @param nums
      * @return
      */
@@ -2258,29 +2260,1168 @@ public class MediumProblemSolution {
         for(int a:nums){
             x^=a;
         }
+        int b = 1;
+        while((x & b) == 0){
+            b<<=1;
+        }
+        int sep = 0;
+        for(int num:nums){
+            if((num&b)==0){
+                sep^=num;
+            }
+        }
+        return new int[]{sep,x^sep};
+    }
 
-        System.out.println(x);
-        return null;
+    /**
+     * 丑数1  因子只含 2 3 5
+     * @param num
+     * @return
+     */
+    public boolean isUgly(int num) {
+        if(num == 0)return false;
+        while(num % 2 == 0) num = num/2;
+        while(num % 3 == 0) num = num/3;
+        while(num % 5 == 0) num = num/5;
+        return num == 1;
+    }
+
+    /**
+     * 丑数2  寻找第n个丑数
+     * 1, 2, 3, 4, 5, 6, 8, 9, 10, 12
+     * @param n
+     * @return
+     */
+    public int nthUglyNumber(int n) {
+        if(n == 1){
+            return 1;
+        }
+        Queue<Long> two = new LinkedList() ;
+        Queue<Long> three = new LinkedList() ;
+        Queue<Long> five = new LinkedList() ;
+        two.offer(2L);
+        three.offer(3L);
+        five.offer(5L);
+        long result = 0;
+        while(n-->1){
+            long peekTwo = two.peek();
+            long peekThree = three.peek();
+            long peekFive = five.peek();
+            if(peekTwo<peekThree && peekTwo<peekFive){
+                two.offer(peekTwo*2);
+                three.offer(peekTwo*3);
+                five.offer(peekTwo*5);
+                result = two.poll();
+            }else if(peekThree<peekTwo && peekThree<peekFive){
+                three.offer(peekThree*3);
+                five.offer(peekThree*5);
+                result = three.poll();
+            }else {
+                five.offer(peekFive*5);
+                result = five.poll();
+            }
+        }
+        return (int)result;
+    }
+
+    /**
+     * h因子  数组有h个数 大于h 其余小于h   求出这样的最大值h
+     * @param citations
+     * @return
+     */
+    public int hIndex(int[] citations) {
+        Arrays.sort(citations);
+        for(int i=0;i<citations.length;i++){
+            if(citations[i]>=(citations.length-i)){
+                return citations.length-i;
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * n能容纳的最少的平方数(1,4,9,16...)
+     * Input: n = 12
+     * Output: 3
+     * Explanation: 12 = 4 + 4 + 4.
+     * @param n
+     * @return
+     */
+    public int numSquares(int n) {
+        if(n<=0){
+            return 0;
+        }
+        int[] dp = new int[n+1];
+        Arrays.fill(dp,Integer.MAX_VALUE);
+        dp[0] = 0;
+        for(int i=0;i<=n;i++){
+            for(int j=1;j*j<=i;j++){
+                dp[i] = Math.min(dp[i],dp[i-j*j]+1);
+            }
+        }
+        return dp[n];
+    }
+
+    /** TODO 排序？ NO..大神代码:↓
+     * public int findDuplicate(int[] nums) {
+     * 	for (int i = 0; i < nums.length; i++) {
+     * 		while (nums[i] != i) {
+     * 			if (nums[nums[i]] == nums[i]) {
+     * 				return nums[i];
+     *          }
+     * 			int tmp = nums[nums[i]];
+     * 			nums[nums[i]] = nums[i];
+     * 			nums[i] = tmp;*
+     * 		}
+     *    }
+     * 	return -1;
+     * }
+     * 1 -> n+1 唯一重复
+     * Input: [1,3,4,2,2]
+     * Output: 2
+     * 寻找重复的数字
+     * @param nums
+     * @return
+     */
+    public int findDuplicate(int[] nums) {
+        for(int i=0;i<nums.length-1;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i] == nums[j]){
+                    return nums[i];
+                }
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * 生活游戏  1 活  0 死
+     * 上下左右斜对角 一个格子八个邻居
+     * 周围少于等于1个活细胞 或者大于等于4个活细胞  活细胞->死细胞
+     * 周围有三个活细胞 死->活
+     * @param board
+     */
+    public void gameOfLife(int[][] board) {
+        if(board == null || board.length==0){
+            return;
+        }
+        int[][] tem = new int[board.length][board[0].length];
+        for(int i=0;i<board.length;i++){
+            for(int j=0;j<board[0].length;j++){
+                tem[i][j] = board[i][j];
+            }
+        }
+        for(int i=0;i<board.length;i++){
+            for(int j=0;j<board[0].length;j++){
+                int locLifes = getLocLifes(i, j, tem);
+                if(locLifes == 3){
+                    board[i][j] = 1;
+                }else if(locLifes <2 || locLifes>3){
+                    board[i][j] = 0;
+                }
+            }
+        }
+    }
+    private int getLocLifes(int x,int y,int[][] board){
+        int count = 0;
+        if(isLife(x-1,y-1,board)) count++;
+        if(isLife(x,y-1,board)) count++;
+        if(isLife(x+1,y-1,board)) count++;
+        if(isLife(x-1,y,board)) count++;
+        if(isLife(x+1,y,board)) count++;
+        if(isLife(x-1,y+1,board)) count++;
+        if(isLife(x,y+1,board)) count++;
+        if(isLife(x+1,y+1,board)) count++;
+        return count;
+    }
+    private boolean isLife(int x,int y,int[][] board){
+        if(x<board.length && x>=0 && y<board[0].length && y>=0){
+            if(board[x][y] == 1){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Bulls and Cows 游戏
+     * A 正确的位置和数字  B 正确的数字 错误的位置
+     * @param secret
+     * @param guess
+     * @return
+     */
+    public String getHint(String secret, String guess) {
+        int bcount = 0;
+        List<Character> bList = new ArrayList<>();
+        int ccount = 0;
+        List<Character> cList = new ArrayList<>();
+        for(int i=0;i<secret.length();i++){
+            if(secret.charAt(i) == guess.charAt(i)){
+                bcount ++;
+                continue;
+            }
+            if(cList.contains(secret.charAt(i))){
+                cList.remove((Character) secret.charAt(i));
+                ccount++;
+            }else{
+                bList.add(secret.charAt(i));
+            }
+            if(bList.contains(guess.charAt(i))){
+                bList.remove((Character) guess.charAt(i));
+                ccount++;
+            }else {
+                cList.add(guess.charAt(i));
+            }
+        }
+        return bcount+"A"+ccount+"B";
+    }
+
+    /**
+     * Input: [10,9,2,5,3,7,101,18]
+     * Output: 4
+     * Explanation: The longest increasing subsequence is [2,3,7,101]
+     * 最大递增长度
+     * @param nums
+     * @return
+     */
+    public int lengthOfLIS(int[] nums) {
+        int[] subs = new int[nums.length];
+        int len = 0;
+        subs[len++] = nums[0];
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]>subs[len-1]){
+                subs[len++] = nums[i];
+            }else{
+                int pos = findSubsPosition(subs,0,len-1,nums[i]);
+                subs[pos] = nums[i];
+            }
+        }
+        return len;
+    }
+    private int findSubsPosition(int[] subs, int le, int ri, int tar) {
+        int mid;
+        while(le<=ri){
+            mid = (le+ri)/2;
+            if(subs[mid] == tar){
+                return mid;
+            }else if(subs[mid]>tar){
+                ri = mid-1;
+            }else{
+                le = mid+1;
+            }
+        }
+        return le;
+    }
+
+    /**
+     * 是否是 “斐波那契” 字符串
+     * Input: "199100199"
+     * Output: true
+     * Explanation: The additive sequence is: 1, 99, 100, 199.
+     *              1 + 99 = 100, 99 + 100 = 199
+     * @param num
+     * @return
+     */
+    public boolean isAdditiveNumber(String num) {
+        if(num == null || num.length()<3){
+            return false;
+        }
+
+        for(int i=1;i<num.length()-1;i++){
+            for(int j=i+1;j<num.length();j++){
+                if(!valued(num.substring(0,i)) || !valued(num.substring(i,j))){
+                    continue;
+                }
+                long first = Long.valueOf(num.substring(0,i));
+                long second = Long.valueOf(num.substring(i,j));
+                if(findAndTrack(j,second,String.valueOf(first+second),num)){
+                    return true;
+                }
+            }
+        }
+        return false;
+
+    }
+
+    private boolean valued(String num){
+        return !(num.length()>1 && num.startsWith("0"));
+    }
+
+    private boolean findAndTrack(int start, long second, String target, String num) {
+        if(start == num.length()){
+            return true;
+        }
+
+        int ind = 0;
+        while(start < num.length() && ind < target.length()){
+            char c1 = num.charAt(start);
+            char c2 = target.charAt(ind);
+            if(c1 == c2){
+                start++;
+                ind++;
+            }else{
+                return false;
+            }
+        }
+
+        if(ind == target.length()){
+            return findAndTrack(start,Long.valueOf(target),String.valueOf(Long.valueOf(target)+second),num);
+        }
+        return false;
+    }
+
+    /**
+     * 带冷却的购买股票 卖完后 需要冷却一天
+     * Input: [1,2,3,0,2]
+     * Output: 3
+     * Explanation: transactions = [buy, sell, cooldown, buy, sell]
+     * @param prices
+     * @return
+     */
+    public int maxProfit(int[] prices) {
+        if(prices == null || prices.length <2){
+            return 0;
+        }
+        int has0_donothing = 0;
+        int has0_buy = -prices[0];
+        int has1_donothing = -prices[0];
+        int has1_sell = 0;
+        for(int i=1;i<prices.length;i++){
+            has1_donothing = Math.max(has1_donothing, has0_buy);
+            has0_buy = has0_donothing-prices[i];
+            has0_donothing = Math.max(has1_sell,has0_donothing);
+            has1_sell = Math.max(has1_donothing,has0_buy)+prices[i];
+        }
+        return Math.max(has0_donothing,has1_sell);
+    }
+
+
+    /**
+     * 一个无向图 随意选区root节点 求最小高度的根节点集合
+     *
+     * Input: n = 6, edges = [[0, 3], [1, 3], [2, 3], [4, 3], [5, 4]]
+     *
+     *      0  1  2
+     *       \ | /
+     *         3
+     *         |
+     *         4
+     *         |
+     *         5
+     *
+     * Output: [3, 4]
+     *
+     * TODO 穷举 运行时间超时  63/66 pass
+     *
+     * @param n
+     * @param edges
+     * @return
+     */
+    public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+        ArrayList<Integer>[] graph = new ArrayList[n];
+        boolean[] visit = new boolean[n];
+        for(int i=0;i<edges.length;i++){
+            if(graph[edges[i][0]] == null){
+                graph[edges[i][0]] = new ArrayList<>();
+            }
+            if(graph[edges[i][1]] == null){
+                graph[edges[i][1]] = new ArrayList<>();
+            }
+            graph[edges[i][0]].add(edges[i][1]);
+            graph[edges[i][1]].add(edges[i][0]);
+        }
+
+        Map<Integer,Integer> nodeToDeep = new HashMap<>();
+        for(int i=0;i<n;i++){
+            nodeToDeep.put(i,calHeightFromCur(i,graph,visit));
+            visit = new boolean[n];
+        }
+        int min = nodeToDeep.values().stream().min(Integer::compareTo).get();
+        List<Integer> result = new ArrayList<>();
+        for(Integer key:nodeToDeep.keySet()){
+            if(nodeToDeep.get(key) == min){
+                result.add(key);
+            }
+        }
+        return result;
+    }
+
+    private int calHeightFromCur(int curNode, ArrayList<Integer>[] graph, boolean[] visit) {
+        if(visit[curNode]){
+            return 0;
+        }
+        visit[curNode] = true;
+        if(fullTravel(visit)){
+            return 1;
+        }
+        int max = Integer.MIN_VALUE;
+        for(int i=0;i<graph[curNode].size();i++){
+            max = Math.max(max,calHeightFromCur(graph[curNode].get(i),graph,visit));
+        }
+        return max+1;
+    }
+
+    private boolean fullTravel(boolean[] visit) {
+        for(int i=0;i<visit.length;i++){
+            if(!visit[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 超级丑数
+     *
+     * Input: n = 12, primes = [2,7,13,19]
+     * Output: 32
+     * Explanation: [1,2,4,7,8,13,14,16,19,26,28,32] is the sequence of the first 12
+     *              super ugly numbers given primes = [2,7,13,19] of size 4.
+     * @param n
+     * @param primes
+     * @return
+     */
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        if(n==1){
+            return 1;
+        }
+        int[] uglyNum = new int[n];
+        uglyNum[0] = 1;
+        int[] inds = new int[primes.length];
+        int[] nums = new int[primes.length];
+        System.arraycopy(primes,0,nums,0,primes.length);
+        for(int i=1;i<n;i++){
+            int minVal = Integer.MAX_VALUE;
+            for(int j=0;j<nums.length;j++){
+                if(nums[j]<minVal){
+                    minVal = nums[j];
+                }
+            }
+            uglyNum[i] = minVal;
+            for(int j=0;j<primes.length;j++){
+                if(minVal == nums[j]){
+                    inds[j]++;
+                }
+            }
+
+            for(int j=0;j<primes.length;j++){
+                nums[j] = primes[j]*uglyNum[inds[j]];
+            }
+
+        }
+        return uglyNum[n-1];
+    }
+
+    /**
+     * 字典找两个 不含重复字母的 word  求len[word1]*len[word2] 最大值
+     * Input: ["abcw","baz","foo","bar","xtfn","abcdef"]
+     * Output: 16
+     * Explanation: The two words can be "abcw", "xtfn".
+     * @param words
+     * @return
+     */
+    public int maxProduct(String[] words) {
+        //TODO
+        return 0;
+    }
+
+    /**
+     * 锯齿排序  nums[0] < nums[1] > nums[2] < nums[3]....
+     * Input: nums = [1, 5, 1, 1, 6, 4]
+     * Output: One possible answer is [1, 4, 1, 5, 1, 6].
+     * @param nums
+     */
+    public void wiggleSort(int[] nums) {
+        int[] val = Arrays.copyOf(nums, nums.length);
+        Arrays.sort(val);
+        int idx = val.length - 1;
+        for(int i = 1;i < nums.length;i += 2) nums[i] = val[idx--];
+        for(int i = 0;i < nums.length;i += 2) nums[i] = val[idx--];
+    }
+
+    /**
+     * 根据机票 输出行程
+     * Input: [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+     * Output: ["JFK","ATL","JFK","SFO","ATL","SFO"]
+     * Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","SFO"].
+     *              But it is larger in lexical order.
+     * @param tickets
+     * @return
+     */
+    private static final String INITIAL_AIRPORT = "JFK";
+    public List<String> findItinerary(List<List<String>> tickets) {
+        if (tickets == null || tickets.size() == 0)
+            return new ArrayList<>();
+        Map<String, PriorityQueue<String>> graph = new HashMap<>();
+        for (List<String> ticket : tickets) {
+            graph.putIfAbsent(ticket.get(0), new PriorityQueue<>(String::compareTo));
+            graph.get(ticket.get(0)).add(ticket.get(1));
+        }
+
+        LinkedList<String> result = new LinkedList<>();
+        topologicalSort(INITIAL_AIRPORT, graph, result);
+
+        return result;
+    }
+    private void topologicalSort(String vertex, Map<String, PriorityQueue<String>> graph, LinkedList<String> result) {
+        PriorityQueue<String> queue = graph.get(vertex);
+        while (queue != null && !queue.isEmpty()) {
+            String adj = queue.poll();
+            topologicalSort(adj, graph, result);
+
+        }
+        result.addFirst(vertex);
+    }
+
+    /**
+     * Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.
+     * Formally the function should:
+     *
+     *     Return true if there exists i, j, k
+     *     such that arr[i] < arr[j] < arr[k] given 0 ≤ i < j < k ≤ n-1 else return false.
+     * @param nums
+     * @return
+     */
+    public boolean increasingTriplet(int[] nums) {
+        if(nums == null || nums.length < 3) return false;
+        int first = nums[0];
+        int second = Integer.MIN_VALUE;
+        int third = Integer.MIN_VALUE;
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]<first){
+                first = nums[i];
+                continue;
+            }
+            if(second != Integer.MIN_VALUE){
+                if(nums[i]>second){
+                    return true;
+                }else if(nums[i]>first){
+                    second = nums[i];
+                }
+            }else if(nums[i]>first){
+                second = nums[i];
+            }
+        }
+        return false;
+    }
+
+    /**TODO 未做完
+     * A = [4, 3, 2, 6]
+     *
+     * F(0) = (0 * 4) + (1 * 3) + (2 * 2) + (3 * 6) = 0 + 3 + 4 + 18 = 25
+     * F(1) = (0 * 6) + (1 * 4) + (2 * 3) + (3 * 2) = 0 + 4 + 6 + 6 = 16
+     * F(2) = (0 * 2) + (1 * 6) + (2 * 4) + (3 * 3) = 0 + 6 + 8 + 9 = 23
+     * F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
+     *
+     * So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
+     * @param A
+     * @return
+     */
+    public int maxRotateFunction(int[] A) {
+        if(A.length == 0) return 0;
+        int sum = IntStream.of(A).sum();
+        int f1 = 0;
+        for(int i=0;i<A.length;i++){
+            f1 += i*A[i];
+        }
+        int re = f1;
+        for(int i=1;i<A.length;i++){
+            int de = A.length * A[A.length-i];
+            int temMax = f1 + sum - de;
+            re = Math.max(re,temMax);
+            f1 = temMax;
+        }
+        return re;
+    }
+
+    /**
+     * 求最大子序 两两之间可以整除
+     * Given a set of distinct positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies:
+     * Si % Sj = 0 or Sj % Si = 0.
+     * Input: [1,2,3]
+     * Output: [1,2] (of course, [1,3] will also be ok)
+     * @param nums
+     * @return
+     */
+    public List<Integer> largestDivisibleSubset(int[] nums) {
+        if (nums.length == 0) {
+            return new ArrayList<Integer>();
+        }
+
+        Arrays.sort(nums);
+        int[] sizes = new int[nums.length];
+        int[] prevs = new int[nums.length];
+        int maxidx = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sizes[i] = 1;
+            prevs[i] = -1;
+            for (int j = 0; j < i; j++) {
+                if (nums[i] % nums[j] == 0 && sizes[i] < sizes[j]+1) {
+                    sizes[i] = sizes[j]+1;
+                    prevs[i] = j;
+                }
+            }
+            if (sizes[i] > sizes[maxidx]) {
+                maxidx = i;
+            }
+        }
+
+        List<Integer> list = new ArrayList<>();
+        for (int i = maxidx; i != -1; i = prevs[i]) {
+            list.add(nums[i]);
+        }
+        return list;
+    }
+
+    /** TODO 未完成
+     * 各个数组取一个数组成数对 求对小和的前k个数对
+     * Input: nums1 = [1,7,11], nums2 = [2,4,6], k = 3
+     * Output: [[1,2],[1,4],[1,6]]
+     * Explanation: The first 3 pairs are returned from the sequence:
+     *              [1,2],[1,4],[1,6],[7,2],[7,4],[11,2],[7,6],[11,4],[11,6]
+     * @param nums1
+     * @param nums2
+     * @param k
+     * @return
+     */
+    public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+
+        List<List<Integer>> result = new ArrayList<>();
+        int p1 = 0;
+        int p2 = 0;
+        while(p1<nums1.length && p2< nums2.length && k>0){
+            List<Integer> innerPair = new ArrayList<>();
+            innerPair.add(nums1[p1]);
+            innerPair.add(nums2[p2]);
+            result.add(innerPair);
+            k--;
+            if(p1!=nums1.length-1 && p2 != nums2.length-1){
+                if(nums1[p1+1]-nums1[p1]>nums2[p2+1]-nums2[p2]){
+                    p2++;
+                }else{
+                    p1++;
+                }
+            }else if(p2!=nums2.length-1){
+                p2++;
+            }else if(p1!=nums1.length-1){
+                p1++;
+            }else {
+                break;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 字符串解码
+     * Examples:
+     * s = "3[a]2[bc]", return "aaabcbc".
+     * s = "3[a2[c]]", return "accaccacc".
+     * s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
+     * @param s
+     * @return
+     */
+    public String decodeString(String s) {
+        if(s == null || s.length() == 0){
+            return s;
+        }
+        if(s.indexOf('[')==-1){
+            return s;
+        }
+        int count = 0;
+        int[] tags = new int[s.length()];
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)>='0' && s.charAt(i)<='9'){
+                tags[i] = -1;
+            }else if(s.charAt(i) == '['){
+                count++;
+                tags[i] = count;
+            }else if(s.charAt(i) == ']'){
+                tags[i] = count;
+                count--;
+            }else{
+                tags[i] = -2;
+            }
+        }
+
+        StringBuilder re = new StringBuilder();
+        for(int i=0;i<s.length();i++){
+            if(tags[i] == -2){
+                re.append(s.charAt(i));
+            }else if(tags[i] == -1){
+                int temEnd = i+1;
+                while(tags[temEnd] == -1){
+                    temEnd++;
+                }
+                int times = Integer.valueOf(s.substring(i,temEnd));
+                int next = temEnd+1;
+                while(tags[next]!= tags[temEnd]){
+                    next++;
+                }
+                String tem = decodeString(s.substring(temEnd+1,next));
+                for(int j=0;j<times;j++){
+                    re.append(tem);
+                }
+                i = next;
+            }
+        }
+        return re.toString();
+
+    }
+
+    /**
+     *  Given a positive integer n and you can do operations as follow:
+     *     If n is even, replace n with n/2.
+     *     If n is odd, you can replace n with either n + 1 or n - 1.
+     * What is the minimum number of replacements needed for n to become 1?
+     *
+     * Input:
+     * 8
+     * Output:
+     * 3
+     * Explanation:
+     * 8 -> 4 -> 2 -> 1
+     * @param n
+     * @return
+     */
+    public int integerReplacement(int n) {
+        int count = 0;
+        while(n != 1){
+            if((n&1) == 0){
+                n>>>=1;
+            }else if(n == 3 || Integer.bitCount(n-1)<Integer.bitCount(n+1)){
+                n--;
+            }else{
+                n++;
+            }
+            count++;
+        }
+        return count;
+    }
+
+    /** TODO 又问题
+     * Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.
+     *
+     * nums = [1, 2, 3]
+     * target = 4
+     *
+     * The possible combination ways are:
+     * (1, 1, 1, 1)
+     * (1, 1, 2)
+     * (1, 2, 1)
+     * (1, 3)
+     * (2, 1, 1)
+     * (2, 2)
+     * (3, 1)
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    Map<Integer, Integer> map = new HashMap<>();
+    public int combinationSum4(int[] nums, int target) {
+        return find(target, nums);
+    }
+    int find(int target, int[] a) {
+        if (target == 0) {
+            return 1;
+        }
+        if (target < 0)
+            return 0;
+        if (map.containsKey(target))
+            return map.get(target);
+        int acc = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] <= target) {
+                acc += find(target - a[i], a);
+            }
+        }
+        map.put(target, acc);
+        return acc;
+    }
+
+    /** TODO
+     * Given a n x n matrix where each of the rows and columns are sorted in ascending order, find the kth smallest element in the matrix.
+     * Note that it is the kth smallest element in the sorted order, not the kth distinct element.
+     * Example:
+     * matrix = [
+     *    [ 1,  5,  9],
+     *    [10, 11, 13],
+     *    [12, 13, 15]
+     * ],
+     * k = 8,
+     * return 13.
+     * @param matrix
+     * @param k
+     * @return
+     */
+    public int kthSmallest(int[][] matrix, int k) {
+        if(matrix == null || matrix.length == 0){
+            return 0;
+        }
+        return 0;
+    }
+
+    /**
+     * Given a non-negative integer num represented as a string, remove k digits from the number so that the new number is the smallest possible.
+     * Note:
+     *     The length of num is less than 10002 and will be ≥ k.
+     *     The given num does not contain any leading zero.
+     *
+     * Example 1:
+     * Input: num = "1432219", k = 3
+     * Output: "1219"
+     *
+     * Input: num = "10200", k = 1
+     * Output: "200"
+     *
+     * TODO 大神代码  非常精简
+     *
+     * public String removeKdigits(String num, int k) {
+     *         if(num.length() == k)
+     *             return "0";
+     *         Deque<Character> digitStack = new ArrayDeque<>();
+     *         for(int i=0; i<num.length(); i++){
+     *             while(!digitStack.isEmpty() && digitStack.peek() - num.charAt(i) > 0 && k > 0){
+     *                 digitStack.pop();
+     *                 k--;
+     *             }
+     *             digitStack.push(num.charAt(i));
+     *         }
+     *         for(; k > 0; k--) //If k still have left, we know that we got an increasing order for num's digit (like 123456)
+     *             digitStack.pop();//So we just pop the last k digits.
+     *         StringBuilder ans = new StringBuilder();
+     *         while(!digitStack.isEmpty() && digitStack.peekLast() == '0')
+     *             digitStack.removeLast();//Remove leading 0s. In stack, they are at the last position.
+     *         while(!digitStack.isEmpty())
+     *             ans.append(digitStack.pop());
+     *         return ans.length()==0? "0" : ans.reverse().toString();
+     *     }
+     *
+     * Explanation: Remove the leading 1 and the number is 200. Note that the output must not contain leading zeroes.
+     * @param num
+     * @param k
+     * @return
+     */
+    public String removeKdigits(String num, int k) {
+        if(num.length() == k){
+            return "0";
+        }
+        String[] split = num.split("0");
+        if(split.length == 0){
+            return "0";
+        }
+        if(split.length == 1){
+            String tem = num;
+            while(k>0){
+                for(int i=0;i<tem.length();i++){
+                    if(i == tem.length()-1){
+                        tem = tem.substring(0,tem.length()-1);
+                        k--;
+                        break;
+                    }
+                    if(tem.charAt(i)>tem.charAt(i+1)){
+                        tem = tem.substring(0,i)+tem.substring(i+1);
+                        k--;
+                        break;
+                    }
+                }
+            }
+            if(tem.startsWith("0")){
+                return "0";
+            }
+            return tem;
+        }else{
+            StringBuilder sb = new StringBuilder();
+            for(int i=0;i<split.length;i++){
+                int len = split[i].length();
+                if(k == 0){
+                    sb.append(split[i]);
+                    sb.append("0");
+                    continue;
+                }
+                if(len>k){
+                    String s = removeKdigits(split[i], k);
+                    k = 0;
+                    sb.append(s);
+                    sb.append("0");
+                }else{
+                    k-=len;
+                }
+            }
+            String res = sb.substring(0,sb.length()-1);
+            for(int i=num.length()-1;i>=0;i--){
+                if(num.charAt(i)=='0'){
+                    res += "0";
+                }else {
+                    break;
+                }
+            }
+            if(res.startsWith("0")){
+                return "0";
+            }
+            return res;
+        }
+    }
+
+    /**
+     * Given an integer n, return 1 - n in lexicographical order.
+     * For example, given 13, return: [1,10,11,12,13,2,3,4,5,6,7,8,9].
+     * Please optimize your algorithm to use less time and space. The input size may be as large as 5,000,000.
+     *
+     * 词典排序
+     *
+     * TODO 大神代码
+     * 高效
+     *  private List<Integer> ans;
+     *     private int N;
+     *     public List<Integer> lexicalOrder(int n) {
+     *         this.ans = new ArrayList<>();
+     *         this.N = n;
+     *         for (int i = 1; i <= Math.min(n, 9); i++)
+     *             dfs(i);
+     *         return ans;
+     *     }
+     *     private void dfs(int num) {
+     *         ans.add(num);
+     *
+     *         for (int i = 0; i <= 9; i++) {
+     *             if (num * 10 + i <= N) {
+     *                 dfs(num * 10 + i);
+     *             }
+     *         }
+     *     }
+     *
+     * @param n
+     * @return
+     */
+    public List<Integer> lexicalOrder(int n) {
+        return IntStream.range(1, n+1).boxed().sorted(Comparator.comparing(String::valueOf)).collect(Collectors.toList());
+    }
+
+    /**
+     * 先左->右  除去1 3 5 7..个元素   再右->左 除去1 3 5 7.. 个元素 求剩下的最后一个元素
+     * Input:
+     * n = 9,
+     * 1 2 3 4 5 6 7 8 9
+     * 2 4 6 8
+     * 2 6
+     * 6
+     *
+     * TODO 大神
+     * The first round, all the odd numbers removed.
+     * The 2nd round, Divide the remaining number by 2.
+     * (situation 1)Suppose (n/2) % 2 == 1. Then all the odd number of i/2 got removed.
+     * (situation 1)The 3rd round, all the remaining number can be deivided by 4. Recursion.
+     * (situation 2) Suppose (n/2) % 2 == 0. Then all the even number of i/2 got removed. The remaining (i/2) are odd.
+     * (situation 2) The 3rd round, first add 1 to the remaining odd i/2. Then we can do recursion.
+     *
+     * class Solution {
+     *     public int lastRemaining(int n) {
+     *         if(n == 1) return 1;
+     *         if(n <= 3) return 2;
+     *         if((n/2) % 2 == 1) {
+     *             return 4*lastRemaining((n-2) / 4);
+     *         }
+     *         else{
+     *             return 4*lastRemaining(n/4)-2;
+     *         }
+     *     }
+     * }
+     *
+     * TODO 超时
+     * @param n
+     * @return
+     */
+    public int lastRemaining(int n) {
+        List<Integer> collect = IntStream.range(1, n + 1).boxed().collect(Collectors.toList());
+        if(collect.size()==1){
+            return collect.get(0);
+        }
+        while(collect.size() != 1){
+            collect = removeOdd(collect,0);
+            if(collect.size()==1){
+                return collect.get(0);
+            }
+            collect = removeOdd(collect,1);
+        }
+        return collect.get(0);
+    }
+    private List<Integer> removeOdd(List<Integer> list,int direct){
+        if(list.size() == 1){
+            return list;
+        }
+        int count = 1;
+        if(direct == 0){
+            //从左往右
+            for(int i=0;i<list.size();i++){
+                if(count%2==1){
+                    list.set(i,null);
+                }
+                count++;
+            }
+        }else{
+            //右往左
+            for(int i=list.size()-1;i>=0;i--){
+                if(count%2==1){
+                    list.set(i,null);
+                }
+                count++;
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        for(int i=0;i<list.size();i++){
+            if(list.get(i)!= null){
+                res.add(list.get(i));
+            }
+        }
+        return res;
+    }
+
+    /**
+     * s 是否是 t 子序
+     * Example 1:
+     * s = "abc", t = "ahbgdc"
+     * Return true.
+     *
+     * Example 2:
+     * s = "axc", t = "ahbgdc"
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean isSubsequence(String s, String t) {
+        if(s.length() == 0){
+            return true;
+        }
+        int ind = 0;
+        for(int i=0;i<t.length();i++){
+            if(t.charAt(i) == s.charAt(ind)){
+                ind++;
+            }
+            if(ind == s.length()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * s 中每个字符最少出现k次的子串的最长长度
+     * Input:
+     * s = "ababbc", k = 2
+     * Output:
+     * 5
+     * The longest substring is "ababb", as 'a' is repeated 2 times and 'b' is repeated 3 times.
+     *
+     * @param s
+     * @param k
+     * @return
+     */
+    public int longestSubstring(String s, int k) {
+        if(s == null){
+            return 0;
+        }
+        return longestSubstring(s,k,0,s.length());
+    }
+    private int longestSubstring(String s,int k,int start,int end){
+        if(start>=end){
+            return 0;
+        }
+        int[] alc = new int[26];
+        for(int i=start;i<end;i++){
+            alc[s.charAt(i)-'a']++;
+        }
+        boolean isRight = true;
+        for(int x:alc){
+            if(x>0 && x<k){
+                isRight = false;
+                break;
+            }
+        }
+        if(isRight){
+            return end-start;
+        }
+        int maxLen = 0;
+        int i= start;
+        for(int j=start;j<end;j++){
+            int temCount = alc[s.charAt(j) - 'a'];
+            if(temCount<k){
+                maxLen = Math.max(maxLen,longestSubstring(s,k,i,j));
+                i = j+1;
+            }
+        }
+        maxLen = Math.max(maxLen,longestSubstring(s,k,i,end));
+        return maxLen;
+    }
+
+    /**
+     * TODO 超时
+     * 一个数组是否可以分成两个数组 并且其数组和相等
+     * Input: [1, 5, 11, 5]
+     * Output: true
+     *
+     * @param nums
+     * @return
+     */
+    public boolean canPartition(int[] nums) {
+        int sum = 0;
+        for(int x:nums){
+            sum+=x;
+        }
+        if(sum % 2 == 1){
+            return false;
+        }
+        int half = sum/2;
+        Arrays.sort(nums);
+        return canAddSumVal(0,half,nums);
+    }
+
+    private boolean canAddSumVal(int ind, int target, int[] nums) {
+
+        if(target == 0){
+            return true;
+        }
+        if(target<0){
+            return false;
+        }
+        for(int i=ind;i<nums.length;i++){
+            boolean b = canAddSumVal( i + 1, target - nums[i], nums);
+            if(b){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args) throws Exception{
-//        MediumProblemSolution mediumProblemSolution = new MediumProblemSolution();
-//        int[] x = mediumProblemSolution.singleNumber(new int[]{1,2,3,8,7,3,7,8});
+        MediumProblemSolution mediumProblemSolution = new MediumProblemSolution();
+        int aaabb = new MediumProblemSolution().longestSubstring("aaabb",3);
 
-//        System.out.println(lists.size());
+        int iii = ThreadLocalRandom.current().nextInt(1);
+        int qq = ThreadLocalRandom.current().nextInt(1);
+        int a = ThreadLocalRandom.current().nextInt(1);
+        System.out.println(iii+"  "+qq+"  "+a);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        List<Date> list = new ArrayList<>();
-        Date parse1 = simpleDateFormat.parse("2019-4-21");
-        list.add(parse1);
-        Date date = list.stream().max(Date::compareTo).get();
-        System.out.println(date.toString());
-        Date parse2 = simpleDateFormat.parse("2019-4-23");
-        Date parse3 = simpleDateFormat.parse("2019-4-25");
-        list.add(parse2);
-        list.add(parse3);
-        date = list.stream().max(Date::compareTo).get();
-        System.out.println(date.toString());
-        System.out.println(1^3);
+    }
+
+    private static void sort(int[] num,int start,int end){
+        if(start >= end) return;
+        if(num == null || num.length == 0) return;
+        int left = start;
+        int right = end;
+        int key = num[right];
+        while(left < right){
+            while(left < right && num[left] <= key)left++;
+            while(left < right && num[right] >= key)right--;
+            swap(left,right,num);
+        }
+        swap(left,end,num);
+        sort(num,start,left-1);
+        sort(num,right+1,end);
+    }
+
+    private static void swap(int x,int y,int[] arr){
+        arr[x] = arr[x]+arr[y] - (arr[y] = arr[x]);
     }
 }

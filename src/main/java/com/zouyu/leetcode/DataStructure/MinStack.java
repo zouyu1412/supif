@@ -1,4 +1,4 @@
-package com.zouyu.leetcode;
+package com.zouyu.leetcode.DataStructure;
 
 import java.util.LinkedList;
 import java.util.PriorityQueue;

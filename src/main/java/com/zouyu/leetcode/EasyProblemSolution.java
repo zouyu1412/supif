@@ -997,19 +997,310 @@ public class EasyProblemSolution {
         return re;
     }
 
+    /**
+     * Input: 38
+     * Output: 2
+     * Explanation: The process is like: 3 + 8 = 11, 1 + 1 = 2.
+     *              Since 2 has only one digit, return it.
+     * 数字 各个位求和 最后只有一位 输出
+     * @param num
+     * @return
+     * TODO 大神一行
+     * return (1 + (num - 1) % 9);
+     * return num == 0 ? 0 : num % 9 == 0 ? 9 : num % 9;
+     */
+    public int addDigits(int num) {
+        int sum = 0;
+        while(num>10){
+            while(num>0){
+                sum+=(num%10);
+                num = num/10;
+            }
+            num = sum;
+            sum = 0;
+        }
+        return num;
+    }
+
+    /**
+     * 0 1 2 3 4.....  求消失的数
+     * Input: [3,0,1]
+     * Output: 2
+     * @param nums
+     * @return
+     */
+    public int missingNumber(int[] nums) {
+        int sum = (nums.length) * (nums.length + 1) / 2;
+        int resum = 0;
+        for(int i=0;i<nums.length;i++){
+            resum += nums[i];
+        }
+        return sum-resum;
+    }
+
+    /**
+     * TODO 大神代码 第一个坏版本
+     * @param n
+     * @return
+     */
+    public int firstBadVersion(int n) {
+        int left = 1, right = n, mid;
+        while(left < right) {
+            mid = (left & right) + ((left ^ right) >> 1);
+            if (isBadVersion(mid)) right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+    boolean isBadVersion(int x){return false;}
+
+    /**
+     * Input: [0,1,0,3,12]
+     * Output: [1,3,12,0,0]
+     * 把0移到最后
+     * @param nums
+     */
+    public void moveZeroes(int[] nums) {
+        int ind = 0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i] == 0){
+                continue;
+            }else{
+                nums[ind] = nums[i];
+                ind++;
+            }
+        }
+        while(ind<nums.length){
+            nums[ind] = 0;
+            ind++;
+        }
+    }
+
+    /**
+     * Input: pattern = "abba", str = "dog cat cat dog"
+     * Output: true
+     * @param pattern
+     * @param str
+     * @return
+     */
+    public boolean wordPattern(String pattern, String str) {
+        if(str == null || str.length() == 0){
+            return false;
+        }
+        String[] split = str.split(" ");
+        if(pattern.length() != split.length){
+            return false;
+        }
+        Map<Character,String> map = new HashMap<>();
+        for(int i= 0;i<pattern.length();i++){
+            char c = pattern.charAt(i);
+            String s = map.get(c);
+            if(s == null){
+                if(map.containsValue(split[i])){
+                    return false;
+                }
+                map.put(c,split[i]);
+            }else if(!s.equals(split[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 判断是否是4的幂
+     * @param num
+     * @return
+     */
+    public boolean isPowerOfFour(int num) {
+        if(num<=0) return  false;
+        while(num != 0){
+            if(num == 1){
+                return true;
+            }else if((num&3)!= 0){
+                return false;
+            }
+            num>>=2;
+        }
+        return false;
+    }
+
+    /**
+     * 翻转
+     * @param s
+     */
+    public void reverseString(char[] s) {
+        for(int i=0;i<s.length/2;i++){
+            s[i] = (char) (s[i]+s[s.length-i-1]-(s[s.length-i-1]=s[i]));
+        }
+    }
+
+    /**
+     * 元音 的翻转
+     * @param s
+     * @return
+     */
+    public String reverseVowels(String s) {
+        List<Character> vowels = new ArrayList(){{add('a');add('e');add('i');add('o');add('u');add('A');add('E');add('I');add('O');add('U');}};
+        if(s == null || s.length() == 0) return s;
+        char[] chars = s.toCharArray();
+        int start = 0;
+        int end = s.length()-1;
+        while(start<end){
+            while(!vowels.contains(s.charAt(start)) && start<end) start++;
+            while(!vowels.contains(s.charAt(end)) && start<end) end--;
+            chars[end] = (char)(chars[start]+chars[end]-(chars[start]=chars[end]));
+            start++;
+            end--;
+        }
+        return new String(chars);
+    }
+
+    /**
+     * TODO 大神代码
+     * public int[] intersection(int[] nums1, int[] nums2) {
+     * 	Set<Integer> set = Arrays.stream(nums1).mapToObj(e -> e).collect(Collectors.toSet());
+     * 	return Arrays.stream(nums2).filter(set::contains).distinct().toArray();
+     * }
+     * 获取交集 结果数组元素唯一 任何顺序
+     * Input: nums1 = [1,2,2,1], nums2 = [2,2]
+     * Output: [2]
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int ind1 = 0;
+        int ind2 = 0;
+        Set<Integer> set = new HashSet<>();
+        while(ind1 < nums1.length && ind2 < nums2.length){
+            if(nums1[ind1] == nums2[ind2]){
+                set.add(nums1[ind1]);
+                ind1++;
+                ind2++;
+            }else if(nums1[ind1]>nums2[ind2]){
+                ind2++;
+            }else{
+                ind1++;
+            }
+        }
+        int[] re = new int[set.size()];
+        int ind = 0;
+        for(Iterator<Integer> it = set.iterator();it.hasNext();){
+            re[ind++] = it.next();
+        }
+
+        return re;
+    }
+
+    /**
+     * 元素可以出现多次  求两个数组交集
+     * Input: nums1 = [1,2,2,1], nums2 = [2,2]
+     * Output: [2,2]
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int[] intersectII(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int p1 = 0;
+        int p2 = 0;
+        List<Integer> re = new ArrayList<>();
+        while(p1 < nums1.length && p2 < nums2.length){
+            if(nums1[p1] == nums2[p2]){
+                re.add(nums1[p1]);
+                p1++;
+                p2++;
+            }else if(nums1[p1] > nums2[p2]){
+                p2++;
+            }else{
+                p1++;
+            }
+        }
+        int[] res = new int[re.size()];
+        for(int i=0;i<re.size();i++){
+            res[i] = re.get(i);
+        }
+        return res;
+    }
+
+    /**
+     * 是否是完全平方数  16->true
+     * @param num
+     * @return
+     */
+    public boolean isPerfectSquare(int num) {
+        if(num<=1){
+            return true;
+        }
+        for(int i=1;i<=num/2;i++){
+            if(i*i == num){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Find the nth digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...
+     *
+     * Input:
+     * 11
+     * Output:
+     * 0
+     * @param n
+     * @return
+     */
+    public int findNthDigit(int n) {
+        int ind = 1;
+        int interval = 9;
+        while(n>interval){
+            ind++;
+            n-=interval;
+            interval = ind*((int)Math.pow(10,ind-1))*9;
+            if(interval<0){
+                break;
+            }
+        }
+        int base = (int)Math.pow(10,ind-1);
+        int num = base+(n-1)/ind;
+        return String.valueOf(num).charAt((n-1)%ind)-'0';
+
+    }
+
+    /**
+     * 转16进制
+     * Input:
+     * 26
+     *
+     * Output:
+     * "1a"
+     * @param num
+     * @return
+     */
+    public String toHex(int num) {
+        if(num == 0){
+            return "0";
+        }
+        Map<Integer,Character> map = new HashMap(){{put(10,'a');put(11,'b');put(12,'c');put(13,'d');put(14,'e');put(15,'f');}};
+        for(int i=0;i<10;i++){
+            map.put(i,(char)('0'+i));
+        }
+        StringBuilder result = new StringBuilder();
+        while(num!=0){
+            int r = num & 15;
+            num >>>= 4;
+            result.append(map.get(r));
+        }
+        return result.reverse().toString();
+    }
+
     public static void main(String[] args) {
         EasyProblemSolution easyProblemSolution = new EasyProblemSolution();
-//        easyProblemSolution.rotate(new int[]{1,2,3,4,5,6,7},3);
+        System.out.println(easyProblemSolution.toHex(-1));
 
-//        System.out.println(easyProblemSolution.isHappy(19));
-        ListNode l1 = new ListNode(1);
-        ListNode l2 = new ListNode(2);
-        ListNode l3 = new ListNode(3);
-        l1.next = l2;
-        l2.next = l3;
-        l1.pri();
-        l1 = easyProblemSolution.revNode(l1);
-        System.out.println();
-        l1.pri();
     }
 }

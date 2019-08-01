@@ -509,10 +509,350 @@ public class MasterClassicCode {
         return result;
     }
 
+    /**
+     * 第n个丑数  2 3 5因子
+     * @param n
+     * @return
+     */
+    public int nthUglyNumber(int n) {
+        int[] ugly = new int[n];
+        ugly[0] = 1;
+        int index2 = 0, index3 = 0, index5 = 0;
+        int factor2 = 2, factor3 = 3, factor5 = 5;
+        for(int i=1;i<n;i++){
+            int min = Math.min(Math.min(factor2,factor3),factor5);
+            ugly[i] = min;
+            if(factor2 == min)
+                factor2 = 2*ugly[++index2];
+            if(factor3 == min)
+                factor3 = 3*ugly[++index3];
+            if(factor5 == min)
+                factor5 = 5*ugly[++index5];
+        }
+        return ugly[n-1];
+    }
+
+    /**
+     * TODO 大神代码 原地进行 游戏人生 MediumProblem
+     * @param board
+     */
+    public void gameOfLife(int[][] board) {
+        //sanity check
+        if (board == null || board.length == 0) {
+            return;
+        }
+
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                board[i][j] += count(board, i, j) * 10;
+                priArr(board);
+                System.out.println();
+            }
+        }
+        //modify
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                int shi = board[i][j] / 10;
+                if (shi == 3) {
+                    board[i][j] = 1;
+                } else if (shi < 2 || shi > 3) {
+                    board[i][j] = 0;
+                } else {
+                    board[i][j] %= 10;
+                }
+            }
+        }
+        return;
+    }
+    public int count(int[][] board, int i, int j) {
+        int res = 0;
+        if (i >= 1 && j >= 1 && getV(board, i - 1, j - 1) )            // up left
+            res++;
+        if (i >= 1 && getV(board, i - 1, j) )                           // up
+            res++;
+        if (i >= 1 && j <= board[0].length - 2 && getV(board, i - 1, j + 1) ) //upright
+            res++;
+        if (j >= 1 && getV(board, i, j - 1))                        //left
+            res++;
+        if (j <= board[0].length - 2 && getV(board, i, j + 1) )         //right
+            res++;
+        if (i <= board.length - 2 && j >= 1 && getV(board, i + 1, j - 1))   // botleft
+            res++;
+        if (i <= board.length - 2 && getV(board, i + 1, j))         //down\
+            res++;
+        if (i <= board.length - 2 && j <= board[0].length - 2 && getV(board, i + 1, j + 1))  // botright
+            res++;
+
+        return res;
+    }
+    public boolean getV(int[][] board, int i, int j) {
+        if (board[i][j] < 10) {
+            return board[i][j] > 0;
+        }
+        return board[i][j] % 10 > 0;
+    }
+
+    /**
+     * 最大递增序列长度 Medium
+     * @param a
+     * @param low
+     * @param high
+     * @param x
+     * @return
+     */
+    public static int findPositionToReplace(int[] a, int low, int high, int x) {
+        int mid;
+        while (low <= high) {
+            mid = low + (high - low) / 2;
+            if (a[mid] == x)
+                return mid;
+            else if (a[mid] > x)
+                high = mid - 1;
+            else
+                low = mid + 1;
+        }
+        return low;
+    }
+    public static int lengthOfLIS(int[] nums) {
+        if (nums == null | nums.length == 0)
+            return 0;
+        int n = nums.length, len = 0;
+        int[] increasingSequence = new int[n];
+        increasingSequence[len++] = nums[0];
+        for (int i = 1; i < n; i++) {
+            if (nums[i] > increasingSequence[len - 1])
+                increasingSequence[len++] = nums[i];
+            else {
+                int position = findPositionToReplace(increasingSequence, 0, len - 1, nums[i]);
+                increasingSequence[position] = nums[i];
+            }
+        }
+        return len;
+    }
+
+    /**
+     * 股票利润 可以买任意次数  但是卖完必须"冷却"一天
+     * Input: [1,2,3,0,2]
+     * Output: 3
+     * Explanation: transactions = [buy, sell, cooldown, buy, sell]
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfit(int[] prices) {
+        int L = prices.length;
+        if(L < 2) return 0;
+
+        int has1_doNothing = -prices[0];
+        int has1_Sell = 0;
+        int has0_doNothing = 0;
+        int has0_Buy = -prices[0];
+        System.out.println(has1_doNothing + "    " + has0_Buy+"    " + has0_doNothing + "    " + has1_Sell);
+        for(int i=1; i<L; i++) {
+            has1_doNothing = has1_doNothing > has0_Buy ? has1_doNothing : has0_Buy;
+            has0_Buy = -prices[i] + has0_doNothing;
+            has0_doNothing = has0_doNothing > has1_Sell ? has0_doNothing : has1_Sell;
+            has1_Sell = prices[i] + has1_doNothing;
+
+            System.out.println(has1_doNothing + "    " + has0_Buy+"    " + has0_doNothing + "    " + has1_Sell);
+        }
+        return has1_Sell > has0_doNothing ? has1_Sell : has0_doNothing;
+    }
+
+
+    /**
+     * 一个无向图 随意选区root节点 求最小高度的根节点集合
+     *
+     * Input: n = 6, edges = [[0, 3], [1, 3], [2, 3], [4, 3], [5, 4]]
+     *
+     *      0  1  2
+     *       \ | /
+     *         3
+     *         |
+     *         4
+     *         |
+     *         5
+     *
+     * Output: [3, 4]
+     * @param n
+     * @param edges
+     * @return
+     */
+    public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+        if (n == 1) return Collections.singletonList(0);
+
+        List<Set<Integer>> adj = new ArrayList<>(n);
+        for (int i = 0; i < n; ++i) adj.add(new HashSet<>());
+        for (int[] edge : edges) {
+            adj.get(edge[0]).add(edge[1]);
+            adj.get(edge[1]).add(edge[0]);
+        }
+
+        List<Integer> leaves = new ArrayList<>();
+        for (int i = 0; i < n; ++i)
+            if (adj.get(i).size() == 1) leaves.add(i);
+
+        while (n > 2) {
+            n -= leaves.size();
+            List<Integer> newLeaves = new ArrayList<>();
+            for (int i : leaves) {
+                int j = adj.get(i).iterator().next();
+                adj.get(j).remove(i);
+                if (adj.get(j).size() == 1) newLeaves.add(j);
+            }
+            leaves = newLeaves;
+        }
+        return leaves;
+    }
+
+    /** TODO medium
+     * 字典找两个 不含重复字母的 word  求len[word1]*len[word2] 最大值
+     * Input: ["abcw","baz","foo","bar","xtfn","abcdef"]
+     * Output: 16
+     * Explanation: The two words can be "abcw", "xtfn".
+     * @param words
+     * @return
+     */
+//    public int maxProduct(String[] words) {
+//        int res = 0, n = words.length;
+//        Map<Character, Set<Integer>> charToWordIdxs = new HashMap<>();
+//        for(char c = 'a'; c <= 'z'; ++c) charToWordIdxs.put(c, new HashSet<>());
+//        Set<Integer> idxs = new HashSet<>();
+//        for(int i = 0; i < n; ++i) {
+//            if(i != 0) idxs.add(i - 1);
+//            String word = words[i];
+//            Set<Integer> validSet = new HashSet<>(idxs);
+//            for(int j = 0; j < word.length(); ++j) {
+//                char c = word.charAt(j);
+//                Set<Integer> commonWordIdxs = charToWordIdxs.get(c);
+//                validSet.removeAll(commonWordIdxs);
+//                charToWordIdxs.get(word.charAt(j)).add(i);
+//            }
+//            for(int validIdx: validSet) {
+//                res =Math.max(res,  words[validIdx].length() * words[i].length());
+//            }
+//        }
+//        return res;
+//    }
+    public int maxProduct(String[] words) {
+        int max = 0;
+
+        Arrays.sort(words, (a, b) -> b.length() - a.length());
+
+        int[] masks = new int[words.length]; // alphabet masks
+
+        for(int i = 0; i < masks.length; i++){
+            for(char c: words[i].toCharArray()){
+                masks[i] |= 1 << (c - 'a');
+            }
+        }
+
+        for(int i = 0; i < masks.length; i++){
+            if(words[i].length() * words[i].length() <= max) break; //prunning
+            for(int j = i + 1; j < masks.length; j++){
+                if((masks[i] & masks[j]) == 0){
+                    max = Math.max(max, words[i].length() * words[j].length());
+                    break; //prunning
+                }
+            }
+        }
+
+        return max;
+    }
+
+    /**
+     * TODO 三种方法  线段树 二叉索引树 归并排序    下面为第二种方法
+     * 求右侧小于当前元素的个数数组
+     * @param nums
+     * @return
+     */
+    public List<Integer> countSmaller(int[] nums) {
+        List<Integer> res = new LinkedList<Integer>();
+        if (nums == null || nums.length == 0) {
+            return res;
+        }
+        // find min value and minus min by each elements, plus 1 to avoid 0 element
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            min = (nums[i] < min) ? nums[i]:min;
+        }
+        int[] nums2 = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            nums2[i] = nums[i] - min + 1;
+            max = Math.max(nums2[i],max);
+        }
+        int[] tree = new int[max+1];
+        for (int i = nums2.length-1; i >= 0; i--) {
+            res.add(0,get(nums2[i]-1,tree));
+            update(nums2[i],tree);
+        }
+        return res;
+    }
+    private int get(int i, int[] tree) {
+        int num = 0;
+        while (i > 0) {
+            num +=tree[i];
+            i -= i&(-i);
+        }
+        return num;
+    }
+    private void update(int i, int[] tree) {
+        while (i < tree.length) {
+            tree[i] ++;
+            i += i & (-i);
+        }
+    }
+
+    /**
+     * 最后剩下的
+     * 先左->右  除去1 3 5 7..个元素   再右->左 除去1 3 5 7.. 个元素 求剩下的最后一个元素
+     * Input:
+     * n = 9,
+     * 1 2 3 4 5 6 7 8 9
+     * 2 4 6 8
+     * 2 6
+     * 6
+     * @param n
+     * @return
+     */
+    public int lastRemaining(int n) {
+        if (n < 2) { return n; }
+
+        int step = 2, curr = 2;
+        while (curr + step >= 1 && curr + step <= n) {
+            if (step > 0) {
+                while (curr + step <= n) {
+                    curr += step;
+                }
+                curr -= step;
+                step *= -2;
+            } else {
+                while (curr + step >= 1) {
+                    curr += step;
+                }
+                curr -= step;
+                step *= -2;
+            }
+        }
+        return curr;
+    }
+
     public static void main(String[] args) {
-//        System.out.println(new MasterClassicCode().simplifyPath("/a/./b/../../c/"));
-        System.out.println(new MasterClassicCode().productExceptSelf(new int[]{1,2,3,4}));
-//        System.out.println(new MasterClassicCode().simplifyPath("/home//foo/"));
-//        System.out.println(new MasterClassicCode().simplifyPath("/home/"));
+        int integers = new MasterClassicCode().lastRemaining(9);
+
+        System.out.println(integers);
+
+
+//        new MasterClassicCode().gameOfLife(new int[][]{{0,1,0},{0,0,1},{1,1,1},{0,0,0}});
+    }
+
+    public static void priArr(int[][] x){
+        for(int i=0;i<x.length;i++){
+            for(int j=0;j<x[0].length;j++){
+                System.out.print(x[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
 }

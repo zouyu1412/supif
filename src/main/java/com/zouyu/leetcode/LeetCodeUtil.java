@@ -1,5 +1,8 @@
 package com.zouyu.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by zouy-c on 2018/3/21.
  */
@@ -59,10 +62,13 @@ public class LeetCodeUtil {
     }
 
     public static void main(String[] args) {
-        String s = "1,2,3";
-        String[] ss = s.split(",");
-        for(String x:ss){
-            System.out.println(x+"dd");
-        }
+        List<Integer> list =new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        List<Integer> integers = list.subList(1, 3);
+        System.out.println(integers.size());
     }
 }

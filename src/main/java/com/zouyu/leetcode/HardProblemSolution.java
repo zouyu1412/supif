@@ -570,12 +570,113 @@ public class HardProblemSolution {
         return dp[courses.length][maxDay];
     }
 
+    /**
+     * Write a one-pass algorithm with O(1) extra space to determine, if your path crosses itself, or not.
+     * Example 1:
+     *
+     * ┌───┐
+     * │      │
+     * └───┼──>
+     *         │
+     *
+     * Input: [2,1,1,2]
+     * Output: true
+     * @param x
+     * @return
+     * TODO master code
+     * public boolean isSelfCrossing(int[] x) {
+     *         if(x.length < 4)    return false;
+     *         int i = 0, base = 0;
+     *         while(i+4 <= x.length){
+     *             if(x[i] - x[i+2] >= 0 && x[i+1] - x[i+3] <= base)  return true;
+     *             else if(x[i+1] - x[i+3] > base)     base = 0;
+     *             else    base = x[i];
+     *             i++;
+     *         }
+     *         return false;
+     *     }
+     */
+    public boolean isSelfCrossing(int[] x) {
+        int curX = 0;
+        int curY = 0;
+        Set<Point> points = new HashSet<>();
+        points.add(new Point(curX,curY));
+        for(int i=0;i<x.length;i++){
+            if(i%4 == 0){
+                for(int j=curY+1;j<=curY+x[i];j++){
+                    if(!points.add(new Point(curX,j))){
+                        return true;
+                    }
+                }
+                curY += x[i];
+            }else if(i%4 == 1){
+                for(int j=curX-1;j>=curX-x[i];j--){
+                    if(!points.add(new Point(j,curY))){
+                        return true;
+                    }
+                }
+                curX -= x[i];
+            }else if(i%4 == 2){
+                for(int j=curY-1;j>=curY-x[i];j--){
+                    if(!points.add(new Point(curX,j))){
+                        return true;
+                    }
+                }
+                curY -= x[i];
+            }else if(i%4 == 3){
+                for(int j=curX+1;j<=curX+x[i];j++){
+                    if(!points.add(new Point(j,curY))){
+                        return true;
+                    }
+                }
+                curX += x[i];
+            }
+        }
+        return false;
+    }
+    private class Point{
+        int x;
+        int y;
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+        @Override
+        public boolean equals(Object obj) {
+            if(obj instanceof Point){
+                Point other = (Point) obj;
+                return other.x == this.x && other.y == this.y;
+            }
+            return false;
+        }
+        @Override
+        public int hashCode() {
+            return Objects.hash(x, y);
+        }
+    }
+
+
+    /**
+     * 求右侧比当前元素小的个数
+     * Input: [5,2,6,1]
+     * Output: [2,1,1,0]
+     * @param nums
+     * @return
+     */
+    public List<Integer> countSmaller(int[] nums) {
+        return null;
+    }
+
+
+
     public static void main(String[] args) {
         //LeetCodeUtil.printListNode(new HardProblemSolution().reverseKGroup(LeetCodeUtil.intArrayToListNode(new int[]{1,2,3,4,5}),2));
-//        System.out.println(new HardProblemSolution().maximumGap(new int[]{3,6,9,1}));
-        System.out.println(new HardProblemSolution().scheduleCourse(new int[][]{{1,2},{4,15},{10,14},{20,32}}));
-//        (Arrays.asList(new Interval(1,5)),new Interval(6,8));
+        System.out.println(new HardProblemSolution().isSelfCrossing(new int[]{2,1,1,2}));
+//        System.out.println(new HardProblemSolution().scheduleCourse(new int[][]{{1,2},{4,15},{10,14},{20,32}}));
 
+        List<Integer> list = new ArrayList();
+        Collections.sort(list,Integer::compareTo);
+        System.out.println(list.size());
     }
 
     private void pri(int[][] x){
