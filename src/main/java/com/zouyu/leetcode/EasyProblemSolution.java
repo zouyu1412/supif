@@ -1298,9 +1298,76 @@ public class EasyProblemSolution {
         return result.reverse().toString();
     }
 
+    /**
+     * 数字字符串 相加  不能转换成整型
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public String addStrings(String num1, String num2) {
+        if(num1.length()<num2.length()){
+            return addStrings(num2,num1);
+        }
+        StringBuilder result = new StringBuilder();
+        boolean overFlag = false;
+        int ind1=num1.length()-1,ind2=num2.length()-1;
+        for(;ind1>=0;ind1--,ind2--){
+            int tem1 = num1.charAt(ind1)-'0';
+            int tem2 = ind2<0?0:(num2.charAt(ind2)-'0');
+            int cur = (tem1+tem2+(overFlag?1:0))%10;
+            result.append(cur);
+            overFlag = (tem1+tem2+(overFlag?1:0)>=10);
+        }
+        if(overFlag){
+            result.append(1);
+        }
+        return result.reverse().toString();
+    }
+
+    /**
+     * core 递归
+     *  二进制时钟 0000:000000 => 时:分  num个1 求所有可能的时间
+     *  Input: n = 1
+     * Return: ["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]
+     * @param num
+     * @return
+     */
+    public List<String> readBinaryWatch(int num) {
+        List<String> result = new ArrayList<>();
+        int[] timeBoard = new int[]{1,2,4,8,1,2,4,8,16,32};
+        newRecur(num,0,0,0,result,timeBoard);
+        result.sort(String::compareTo);
+        return result;
+    }
+
+    private void newRecur(int step, int x_ind, int hour, int minute, List<String> result, int[] timeBoard) {
+        if(hour >= 12 || minute >= 60){
+            return;
+        }
+
+        if(step == 0){
+            String hourStr = String.valueOf(hour);
+            String minuteStr = minute<=9?"0"+minute:String.valueOf(minute);
+            String answer = hourStr + ":" + minuteStr;
+            result.add(answer);
+        }
+
+        for(int i=x_ind;i<timeBoard.length;i++){
+            if(hour>11 || minute>59){
+                continue;
+            }
+
+            if(i<=3){
+                newRecur(step-1,i+1,hour+timeBoard[i],minute,result,timeBoard);
+            }else{
+                newRecur(step-1,i+1,hour,minute+timeBoard[i],result,timeBoard);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         EasyProblemSolution easyProblemSolution = new EasyProblemSolution();
-        System.out.println(easyProblemSolution.toHex(-1));
+        System.out.println(easyProblemSolution.addStrings("9","99"));
 
     }
 }

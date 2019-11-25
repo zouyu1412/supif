@@ -789,6 +789,10 @@ public class MasterClassicCode {
         }
         return res;
     }
+
+    /**
+     * 38288的二进制是1001010110010000，所以lowbit(38288)=16(10000)。在程序实现中，lowbit(x)=x&-x
+     */
     private int get(int i, int[] tree) {
         int num = 0;
         while (i > 0) {
@@ -838,13 +842,127 @@ public class MasterClassicCode {
         return curr;
     }
 
+    /**
+     * s 经过k次替换字符操作 最多能有多长的同字符串
+     * Input:
+     * s = "AABABBA", k = 1
+     *
+     * Output:
+     * 4
+     * @param s
+     * @param k
+     * @return
+     */
+    public int characterReplacement(String s, int k) {
+        int len = s.length();
+        int[] count = new int[26];
+        int start = 0, maxCount = 0, maxLength = 0;
+        for (int end = 0; end < len; end++) {
+            int curCount = ++count[s.charAt(end) - 'A'];
+            if (curCount > maxCount) {
+                maxCount = curCount;
+            } else {
+                if (end - start + 1 - maxCount > k) {
+                    count[s.charAt(start) - 'A']--;
+                    start++;
+                    continue;
+                }
+            }
+            maxLength = Math.max(maxLength, end - start + 1);
+        }
+        return maxLength;
+    }
+
+    /**
+     * CORE 不用额外空间 O(n) 时间复杂度
+     * 出现两次的数字
+     * Input:
+     * [4,3,2,7,8,2,3,1]
+     *
+     * Output:
+     * [2,3]
+     * @param nums
+     * @return
+     */
+    public List<Integer> findDuplicates(int[] nums) {
+        int n;
+        int valAtIndex ;
+        List<Integer> ans = new ArrayList<Integer>();
+        //[4,3,2,7,8,2,3,1]
+        //idea here we iterate the num array and mark the value at num[num[i]] to be negative, if we see any negative value while iteration it means we have already visited it
+        for(int i=0;i<nums.length;i++){
+            n=nums[i];
+            n = Math.abs(n);
+            valAtIndex = nums[n-1];
+            if(valAtIndex>0){
+                nums[n-1] = -1*valAtIndex;
+            }else{
+                ans.add(n);
+            }
+        }
+        return ans;
+    }
+
+    public int trapRainWater(int[][] heightMap) {
+        if(heightMap == null || heightMap.length <=2 || heightMap[0].length<=2){
+            return 0;
+        }
+        PriorityQueue<Cell> queue = new PriorityQueue(Comparator.comparingInt(Cell::getH));
+        int rowLen = heightMap.length;
+        int colLen = heightMap[0].length;
+
+        boolean[][] visit = new boolean[rowLen][colLen];
+
+        for(int i=0;i<rowLen;i++){
+            queue.offer(new Cell(i,0,heightMap[i][0]));
+            queue.offer(new Cell(i,colLen-1,heightMap[i][colLen-1]));
+            visit[i][0] = true;
+            visit[i][colLen-1] = true;
+        }
+        for(int i=1;i<colLen-1;i++){
+            queue.offer(new Cell(0,i,heightMap[0][i]));
+            queue.offer(new Cell(rowLen-1,i,heightMap[rowLen-1][i]));
+            visit[0][i] = true;
+            visit[rowLen-1][i] = true;
+        }
+
+        int[] x_dir = new int[]{1,-1,0,0};
+        int[] y_dir = new int[]{0,0,1,-1};
+        int sum = 0;
+        while(!queue.isEmpty()){
+            Cell temCell =queue.poll();
+            for(int i=0;i<4;i++){
+                int nx = temCell.x+x_dir[i];
+                int ny = temCell.y+y_dir[i];
+                if(nx>=0 && nx<rowLen && ny>=0 && ny<colLen && !visit[nx][ny]){
+                    sum+=Math.max(0,temCell.h-heightMap[nx][ny]);
+                    queue.offer(new Cell(nx,ny,heightMap[nx][ny]));
+                    visit[nx][ny] = true;
+                }
+            }
+        }
+        return sum;
+    }
+    class Cell{
+        int x;
+        int y;
+        int h;
+        Cell(int x,int y,int h){
+            this.x = x;
+            this.y = y;
+            this.h = h;
+        }
+        public int getH(){
+            return this.h;
+        }
+    }
+
     public static void main(String[] args) {
-        int integers = new MasterClassicCode().lastRemaining(9);
+//        List<Integer> duplicates = new MasterClassicCode().findDuplicates(new int[]{4, 3, 2, 7, 8, 2, 3, 1});
 
-        System.out.println(integers);
+        int x = new MasterClassicCode().trapRainWater(new int[][]{{1,3,3,1,3,2},{3,2,1,3,2,3},{3,3,3,2,3,1}});
+        System.out.println(x);
 
-
-//        new MasterClassicCode().gameOfLife(new int[][]{{0,1,0},{0,0,1},{1,1,1},{0,0,0}});
     }
 
     public static void priArr(int[][] x){

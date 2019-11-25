@@ -667,16 +667,10 @@ public class HardProblemSolution {
         return null;
     }
 
-
-
     public static void main(String[] args) {
         //LeetCodeUtil.printListNode(new HardProblemSolution().reverseKGroup(LeetCodeUtil.intArrayToListNode(new int[]{1,2,3,4,5}),2));
-        System.out.println(new HardProblemSolution().isSelfCrossing(new int[]{2,1,1,2}));
+//        System.out.println(new HardProblemSolution().isSelfCrossing(new int[]{2,1,1,2}));
 //        System.out.println(new HardProblemSolution().scheduleCourse(new int[][]{{1,2},{4,15},{10,14},{20,32}}));
-
-        List<Integer> list = new ArrayList();
-        Collections.sort(list,Integer::compareTo);
-        System.out.println(list.size());
     }
 
     private void pri(int[][] x){

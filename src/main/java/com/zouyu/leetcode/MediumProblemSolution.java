@@ -2748,7 +2748,8 @@ public class MediumProblemSolution {
      * @param tickets
      * @return
      */
-    private static final String INITIAL_AIRPORT = "JFK";
+//    private static final String INITIAL_AIRPORT = "JFK";
+    private static final String INITIAL_AIRPORT = "1";
     public List<String> findItinerary(List<List<String>> tickets) {
         if (tickets == null || tickets.size() == 0)
             return new ArrayList<>();
@@ -3356,7 +3357,7 @@ public class MediumProblemSolution {
     }
 
     /**
-     * TODO 超时
+     * TODO 大神代码
      * 一个数组是否可以分成两个数组 并且其数组和相等
      * Input: [1, 5, 11, 5]
      * Output: true
@@ -3365,38 +3366,259 @@ public class MediumProblemSolution {
      * @return
      */
     public boolean canPartition(int[] nums) {
-        int sum = 0;
-        for(int x:nums){
-            sum+=x;
-        }
-        if(sum % 2 == 1){
+        int sum = Arrays.stream(nums).reduce(0, Integer::sum);
+        if(sum % 2 != 0){
             return false;
         }
         int half = sum/2;
-        Arrays.sort(nums);
-        return canAddSumVal(0,half,nums);
-    }
-
-    private boolean canAddSumVal(int ind, int target, int[] nums) {
-
-        if(target == 0){
-            return true;
-        }
-        if(target<0){
-            return false;
-        }
-        for(int i=ind;i<nums.length;i++){
-            boolean b = canAddSumVal( i + 1, target - nums[i], nums);
-            if(b){
-                return true;
+        boolean[] dp = new boolean[half+1];
+        dp[0] = true;
+        for(int num:nums){
+            for(int i=half;i>=num;i--){
+                dp[i] = dp[i] || dp[i-num];
             }
         }
-        return false;
+        return dp[half];
     }
+
+    /**
+     * TODO 大神
+     * public List<Integer> findAnagrams(String s, String p) {
+     *         List<Integer> res = new ArrayList();
+     *         if (s==null || s.length()==0 || s.length()<p.length()) return res;
+     *         int[] map = new int[26];
+     *         int count=p.length();
+     *         int start = 0, end = 0;
+     *         for (char c:p.toCharArray()) map[c-'a']++;
+     *         while(end<s.length()) {
+     *             char c = s.charAt(end++);
+     *             if (map[c-'a']-->0) count--;
+     *
+     *             if (end-start==p.length()) {
+     *                 if (count==0) res.add(start);
+     *
+     *                 if (map[s.charAt(start++)-'a']++>=0) count++;
+     *             }
+     *         }
+     *         return res;
+     *     }
+     *
+     * 寻找p的乱序单词 在s中出现的位置集合
+     * Input:
+     * s: "abab" p: "ab"
+     * Output:
+     * [0, 1, 2]
+     * @param s
+     * @param p
+     * @return
+     */
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        for(int i=0;i<=s.length()-p.length();i++){
+            String tem = s.substring(i, i + p.length());
+            if(isAnagram(tem,p)){
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 两个字符串是否是相同字母异序词
+     * @param s1
+     * @param s2
+     * @return
+     */
+    private boolean isAnagram(String s1,String s2){
+        if(s1.length() != s2.length()){
+            return false;
+        }
+        int[] charCount = new int[26];
+        for(int i=0;i<s1.length();i++){
+            charCount[s1.charAt(i)-'a']++;
+        }
+        for(int i=0;i<s2.length();i++){
+            charCount[s2.charAt(i)-'a']--;
+        }
+        for(int i=0;i<charCount.length;i++){
+            if(charCount[i]!=0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 太平洋  上 左
+     * 大西洋  下 右
+     * 中间 数组代表 陆地  数值代表高度
+     * 求所有能同时流入大西洋和太平洋的区域
+     *
+     *Given the following 5x5 matrix:
+     *
+     *   Pacific ~   ~   ~   ~   ~
+     *        ~  1   2   2   3  (5) *
+     *        ~  3   2   3  (4) (4) *
+     *        ~  2   4  (5)  3   1  *
+     *        ~ (6) (7)  1   4   5  *
+     *        ~ (5)  1   1   2   4  *
+     *           *   *   *   *   * Atlantic
+     *
+     * Return:
+     *
+     * [[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]] (positions with parentheses in above matrix).
+     *
+     * @param matrix
+     * @return
+     */
+    public List<List<Integer>> pacificAtlantic(int[][] matrix) {
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
+            return Collections.emptyList();
+        }
+        int rowLen = matrix.length;
+        int colLen = matrix[0].length;
+        boolean[][] pacMap = new boolean[rowLen][colLen];
+        boolean[][] atlMap = new boolean[rowLen][colLen];
+        PriorityQueue<MyZone> queuePac = new PriorityQueue<>(Comparator.comparingInt(MyZone::getHeight));
+        PriorityQueue<MyZone> queueAlt = new PriorityQueue<>(Comparator.comparingInt(MyZone::getHeight));
+        for(int i=0;i<rowLen;i++){
+            pacMap[i][0] = true;
+            atlMap[i][colLen-1] = true;
+            queuePac.offer(new MyZone(i,0,matrix[i][0]));
+            queueAlt.offer(new MyZone(i,colLen-1,matrix[i][colLen-1]));
+        }
+        for(int i=0;i<colLen;i++){
+            pacMap[0][i] = true;
+            atlMap[rowLen-1][i] = true;
+            if(i != 0) {
+                queuePac.offer(new MyZone(0, i, matrix[0][i]));
+            }
+            if(i != colLen-1){
+                queueAlt.offer(new MyZone(rowLen - 1, i, matrix[rowLen - 1][i]));
+            }
+        }
+
+        int[] x_dir = new int[]{1,-1,0,0};
+        int[] y_dir = new int[]{0,0,1,-1};
+        while(!queuePac.isEmpty()){
+            MyZone zone = queuePac.poll();
+            int x = zone.getX();
+            int y = zone.getY();
+            for(int i=0;i<4;i++) {
+                int nx = x+x_dir[i];
+                int ny = y+y_dir[i];
+                if(nx>=0 && nx<rowLen && ny>=0 && ny < colLen && !pacMap[nx][ny] && matrix[nx][ny] >= zone.getHeight()){
+                    queuePac.offer(new MyZone(nx,ny,matrix[nx][ny]));
+                    pacMap[nx][ny] = true;
+                }
+            }
+        }
+
+        while(!queueAlt.isEmpty()){
+            MyZone zone = queueAlt.poll();
+            int x = zone.getX();
+            int y = zone.getY();
+            for(int i=0;i<4;i++) {
+                int nx = x+x_dir[i];
+                int ny = y+y_dir[i];
+                if(nx>=0 && nx<rowLen && ny>=0 && ny < colLen && !atlMap[nx][ny] && matrix[nx][ny] >= zone.getHeight()){
+                    queueAlt.offer(new MyZone(nx,ny,matrix[nx][ny]));
+                    atlMap[nx][ny] = true;
+                }
+            }
+        }
+
+        List<List<Integer>> res = new ArrayList<>();
+        for(int i=0;i<rowLen;i++){
+            for(int j=0;j<colLen;j++){
+                if(atlMap[i][j] && pacMap[i][j]){
+                    List<Integer> tem = new ArrayList<>();
+                    tem.add(i);
+                    tem.add(j);
+                    res.add(tem);
+                }
+            }
+        }
+        return res;
+    }
+    class MyZone{
+        int x;
+        int y;
+        int height;
+        boolean toPac;
+        boolean toAlt;
+        public MyZone(int x, int y, int height) {
+            this.x = x;
+            this.y = y;
+            this.height = height;
+        }
+
+        public int getX() {
+            return x;
+        }
+
+        public int getY() {
+            return y;
+        }
+
+        public int getHeight() {
+            return height;
+        }
+    }
+
+    /** TODO 重写一次
+     * s 经过k次替换字符操作 最多能有多长的同字符串
+     * Input:
+     * s = "AABABBA", k = 1
+     *
+     * Output:
+     * 4
+     * @param s
+     * @param k
+     * @return
+     */
+    public int characterReplacement(String s, int k) {
+        int len = s.length();
+        for(int i=0;i<len;i++){
+            char temChar = s.charAt(i);
+
+        }
+        return 0;
+    }
+
+    class Node {
+        public int val;
+        public Node prev;
+        public Node next;
+        public Node child;
+
+        public Node() {}
+
+        public Node(int _val,Node _prev,Node _next,Node _child) {
+            val = _val;
+            prev = _prev;
+            next = _next;
+            child = _child;
+        }
+    };
+    public Node flatten(Node head) {
+
+    }
+
 
     public static void main(String[] args) throws Exception{
         MediumProblemSolution mediumProblemSolution = new MediumProblemSolution();
-        int aaabb = new MediumProblemSolution().longestSubstring("aaabb",3);
+//[["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]
+        List<List<String>> list = new ArrayList<>();
+        List<String> list1 = new ArrayList(){{add("1");add("2");}};
+        List<String> list2 = new ArrayList(){{add("2");add("3");}};
+        List<String> list3 = new ArrayList(){{add("2");add("4");}};
+        List<String> list4 = new ArrayList(){{add("4");add("2");}};
+        list.add(list1);
+        list.add(list2);
+        list.add(list3);
+        list.add(list4);
+        List<String> itinerary = new MediumProblemSolution().findItinerary(list);
 
         int iii = ThreadLocalRandom.current().nextInt(1);
         int qq = ThreadLocalRandom.current().nextInt(1);
