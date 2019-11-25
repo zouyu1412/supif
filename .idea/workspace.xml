@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0d8e95b-f010-4ffa-94a5-b7609916ae62" name="Default" comment="2019-08-01">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/JVM/security/FileUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/EasyProblemSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/EasyProblemSolution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/HardProblemSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/HardProblemSolution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MasterClassicCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zouyu/leetcode/MediumProblemSolution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/EasyProblemSolution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/EasyProblemSolution.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/HardProblemSolution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/HardProblemSolution.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/MasterClassicCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zouyu/leetcode/MasterClassicCode.class" afterDir="false" />
@@ -55,7 +50,7 @@
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="2" />
-          <entry key="project.open.time.2" value="25" />
+          <entry key="project.open.time.2" value="26" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="3" />
@@ -74,7 +69,7 @@
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="117" />
+          <entry key="project.opened" value="118" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -82,14 +77,14 @@
           <entry key="SeachTree" value="1" />
           <entry key="dummy" value="12" />
           <entry key="java" value="78688" />
-          <entry key="txt" value="29" />
+          <entry key="txt" value="32" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="78688" />
-          <entry key="PLAIN_TEXT" value="42" />
+          <entry key="PLAIN_TEXT" value="45" />
           <entry key="XML" value="11" />
         </counts>
       </usages-collector>
@@ -152,7 +147,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/observer/HanFeiZi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
+            <state relative-caret-position="532">
               <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
             </state>
           </provider>
@@ -161,7 +156,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/Observable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-274">
+            <state relative-caret-position="1938">
               <caret line="131" column="16" selection-start-line="131" selection-start-column="16" selection-end-line="131" selection-end-column="16" />
               <folding>
                 <element signature="e#6483#6484#0" expanded="true" />
@@ -265,6 +260,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="WARN_ABOUT_CRLF" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -389,6 +385,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -544,7 +541,6 @@
       </pane>
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1114,6 +1110,7 @@
       <workItem from="1574142260945" duration="14000" />
       <workItem from="1574216831039" duration="1349000" />
       <workItem from="1574300500052" duration="5185000" />
+      <workItem from="1574657229242" duration="345000" />
     </task>
     <task id="LOCAL-00001" summary="新提交">
       <created>1533794056387</created>
@@ -1143,7 +1140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564629311215</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改">
+      <created>1574657300625</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1574657300626</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1179,7 +1183,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1712210000" />
+    <option name="totallyTimeSpent" value="1712555000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1193,7 +1197,7 @@
   <component name="ToolWindowManager">
     <frame x="1358" y="-320" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49295774" visible="true" weight="0.19402985" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49295774" visible="true" weight="0.19616205" />
       <window_info id="Structure" order="1" weight="0.24962178" />
       <window_info id="Nl-Palette" order="2" />
       <window_info id="Designer" order="3" />
@@ -1307,7 +1311,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="新提交" />
     <MESSAGE value="2019-08-01" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019-08-01" />
+    <MESSAGE value="修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1922,34 +1927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/springevent/MyApplicationListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/springevent/MyApplicationEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/observer/WangSi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/springevent/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -1966,19 +1943,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/observer/HanFeiZi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
+        <state relative-caret-position="532">
           <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/Observable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-274">
+        <state relative-caret-position="1938">
           <caret line="131" column="16" selection-start-line="131" selection-start-column="16" selection-end-line="131" selection-end-column="16" />
           <folding>
             <element signature="e#6483#6484#0" expanded="true" />
             <element signature="e#6514#6515#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zouyu/designmode/observer/WangSi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/springevent/MyApplicationEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/prince/springevent/MyApplicationListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
