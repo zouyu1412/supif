@@ -1365,9 +1365,10 @@ public class EasyProblemSolution {
         }
     }
 
+
     public static void main(String[] args) {
         EasyProblemSolution easyProblemSolution = new EasyProblemSolution();
-        System.out.println(easyProblemSolution.addStrings("9","99"));
-
+//        System.out.println(easyProblemSolution.compress(new char[]{'a','a','b','b','c','c','c'}));
+        easyProblemSolution.findNthDigit(11);
     }
 }

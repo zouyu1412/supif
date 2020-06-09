@@ -17,7 +17,7 @@ public class RPCClient {
         @SuppressWarnings("unchecked")  
         public static <T> T getClient(Class<T> clazz, String ip, int port){  
             return  (T) Proxy.newProxyInstance(RPCClient.class.getClassLoader(), new Class<?>[]{clazz}, new InvocationHandler() {
-                  
+
                 @Override  
                 public Object invoke(Object arg0, Method arg1, Object[] arg2) throws Throwable {
                     Socket socket = new Socket(ip, port);

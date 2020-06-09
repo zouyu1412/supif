@@ -1,7 +1,6 @@
 package com.zouyu.leetcode;
 
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -914,6 +913,7 @@ public class MediumProblemSolution {
 //                nums[i++] = n;
 //        return i;
 //    }
+
     public int removeDuplicates(int[] nums) {
         int cur = nums[0];
         int count = 1;
@@ -3566,65 +3566,297 @@ public class MediumProblemSolution {
         }
     }
 
-    /** TODO 重写一次
-     * s 经过k次替换字符操作 最多能有多长的同字符串
-     * Input:
-     * s = "AABABBA", k = 1
-     *
-     * Output:
-     * 4
-     * @param s
-     * @param k
+    /**
+     * 返回数组最大子序（最少三个元素）为等差数组的 子序个数
+     * A = [1, 2, 3, 4]
+     * return: 3, for 3 arithmetic slices in A: [1, 2, 3], [2, 3, 4] and [1, 2, 3, 4] itself.
+     * @param A
      * @return
      */
-    public int characterReplacement(String s, int k) {
-        int len = s.length();
-        for(int i=0;i<len;i++){
-            char temChar = s.charAt(i);
-
+    public int numberOfArithmeticSlices(int[] A) {
+        if(A == null || A.length <= 1){
+            return 0;
         }
-        return 0;
+        int[] dif = new int[A.length];
+        dif[0] = Integer.MAX_VALUE;
+        for(int i=1;i<dif.length;i++){
+            dif[i] = A[i]-A[i-1];
+        }
+        int res = 0;
+        int preDif = dif[0];
+        int curSameDifCount = 1;
+        for(int i=1;i<dif.length;i++){
+            if(dif[i] == preDif){
+                curSameDifCount ++;
+            }else {
+                preDif = dif[i];
+                if(curSameDifCount>=2){
+                    res+= (curSameDifCount*(curSameDifCount-1)/2);
+                }
+                curSameDifCount = 1;
+            }
+        }
+        if(curSameDifCount>=2){
+            res+= (curSameDifCount*(curSameDifCount-1)/2);
+        }
+        return res;
     }
 
-    class Node {
-        public int val;
-        public Node prev;
-        public Node next;
-        public Node child;
-
-        public Node() {}
-
-        public Node(int _val,Node _prev,Node _next,Node _child) {
-            val = _val;
-            prev = _prev;
-            next = _next;
-            child = _child;
+    /**
+     * 基因序列最小变动
+     * start: "AAAAACCC"
+     * end:   "AACCCCCC"
+     * bank: ["AAAACCCC", "AAACCCCC", "AACCCCCC"]
+     * return: 3
+     *
+     * @param start 起始基因（可以不在基因库）
+     * @param end  结束基因
+     * @param bank 基因库
+     * @return 多少次变动（变动过程必须在基因库）
+     */
+    public int minMutation(String start, String end, String[] bank) {
+        Set<String> banks = new HashSet<>();
+        for(String item:bank){
+            banks.add(item);
         }
-    };
-    public Node flatten(Node head) {
+        if(!banks.contains(end)){
+            return -1;
+        }
+        return minMutation(start, end, bank, banks);
+    }
+
+    public int minMutation(String start, String end, String[] bank, Set<String> banks) {
+        List<Integer> dse = dif(start, end);
+
+        if(dse.size() == 1){
+            return 1;
+        }
+        int res = Integer.MAX_VALUE;
+        for(String cur:bank){
+            if(!banks.contains(cur)){
+                continue;
+            }
+            List<Integer> curDif = dif(cur,end);
+            if(curDif.size() == 1 && dse.size()>curDif.size()){
+                banks.remove(cur);
+                int temMin = minMutation(start, cur, bank, new HashSet<>(banks));
+                if(temMin != -1){
+                    res = Math.min(res,temMin);
+                }
+                banks.add(cur);
+            }
+        }
+        if(res != Integer.MAX_VALUE){
+            return res+1;
+        }else{
+            return -1;
+        }
 
     }
+
+    private List<Integer> dif(String s, String d){
+        List<Integer> list = new ArrayList<>();
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i) != d.charAt(i)){
+                list.add(i);
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 找到"最右"索引
+     * Input: [ [3,4], [2,3], [1,2] ]
+     *
+     * Output: [-1, 0, 1]
+     *
+     * Explanation: There is no satisfied "right" interval for [3,4].
+     * For [2,3], the interval [3,4] has minimum-"right" start point;
+     * For [1,2], the interval [2,3] has minimum-"right" start point.
+     * @param intervals
+     * @return
+     */
+    public int[] findRightInterval(int[][] intervals) {
+        TreeMap<Integer, Integer> map = new TreeMap<>(Integer::compareTo);
+        Map<Integer, Integer> startToIndex = new HashMap<>();
+        for(int i=0;i<intervals.length;i++){
+            map.put(intervals[i][0],intervals[i][1]);
+            startToIndex.put(intervals[i][0],i);
+        }
+
+        int[] res = new int[intervals.length];
+        for(Map.Entry<Integer, Integer> entry:map.entrySet()){
+            Integer key = entry.getKey();
+            Integer value = entry.getValue();
+            Integer ceilingKey = map.ceilingKey(value);
+            res[startToIndex.get(key)] = ceilingKey ==null?-1:startToIndex.get(ceilingKey);
+        }
+        return res;
+    }
+
+    /**
+     * 两个元素最大xor值
+     * @param nums
+     * @return
+     */
+    public int findMaximumXOR(int[] nums) {
+        int max = 0, mask = 0;
+        for(int i = 31; i >= 0; i--){
+            mask = mask | (1 << i);
+            System.out.println("i:"+i+" current mask:"+Integer.toBinaryString(mask));
+            Set<Integer> set = new HashSet<>();
+            for(int num : nums){
+                set.add(num & mask);
+            }
+            int tmp = max | (1 << i);
+            for (int prefix : set) {
+                int temVal = tmp ^ prefix;
+                System.out.println("max:"+max+" tem:"+tmp+" prefix:"+prefix+"  temVal:"+temVal + "set:"+set);
+                if (set.contains(temVal)) {
+                    max = tmp;
+                    break;
+                }
+            }
+        }
+        return max;
+    }
+
+    /**
+     * 单词乱序 升序找出所有数字 0-9
+     * Input: "owoztneoer
+     * Output: "012"
+     * @param s
+     * @return
+     */
+    public String originalDigits(String s) {
+        int[] count = new int[10];
+        int[] charNum = new int[26];
+        for(int i=0;i<s.length();i++){
+            charNum[s.charAt(i)-'a']++;
+        }
+        count[0] = charNum[25];
+        if(count[0]!=0){
+            charNum[4]-=count[0];
+            charNum[17]-=count[0];
+            charNum[14]-=count[0];
+        }
+        count[2] = charNum[22];
+        if(count[2] != 0){
+            charNum[19]-=count[2];
+            charNum[14]-=count[2];
+        }
+        count[4] = charNum[20];
+        if(count[4] != 0){
+            charNum[5]-=count[4];
+            charNum[14]-=count[4];
+            charNum[17]-=count[4];
+        }
+        count[6] = charNum[23];
+        if(count[6] != 0){
+            charNum[18]-=count[6];
+            charNum[8]-=count[6];
+        }
+        count[8] = charNum[6];
+        if(count[8] != 0){
+            charNum[4]-=count[8];
+            charNum[8]-=count[8];
+            charNum[7]-=count[8];
+            charNum[19]-=count[8];
+        }
+
+        count[3] = charNum[7];
+        if(count[3] != 0){
+            charNum[19]-=count[3];
+            charNum[17]-=count[3];
+            charNum[4] = charNum[4]-count[3]*2;
+        }
+
+        count[5] = charNum[5];
+        if(count[5]!= 0){
+            charNum[8]-=count[5];
+            charNum[21]-=count[5];
+            charNum[4]-=count[5];
+        }
+
+        count[7]=charNum[18];
+        if(count[7]!= 0){
+            charNum[21]-=count[7];
+            charNum[13]-=count[7];
+            charNum[4] = charNum[4]-count[7]*2;
+        }
+
+        count[1] = charNum[14];
+        count[9] = charNum[8];
+
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<10;i++){
+            if(count[i] == 0){
+                continue;
+            }
+            for(int j=0;j<count[i];j++){
+                sb.append(i);
+            }
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 链表相加
+     * Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
+     * Output: 7 -> 8 -> 0 -> 7
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode addTwoNumbersII(ListNode l1, ListNode l2) {
+        Stack<Integer> s1 = new Stack<>();
+        Stack<Integer> s2 = new Stack<>();
+        ListNode n1 = l1;
+        ListNode n2 = l2;
+        while(n1 != null){
+            s1.push(n1.val);
+            n1 = n1.next;
+        }
+        while(n2 != null){
+            s2.push(n2.val);
+            n2 = n2.next;
+        }
+        int ind = 0;
+        int ex = 0;
+        StringBuilder reVal = new StringBuilder();
+        while(!s1.isEmpty() || !s2.isEmpty() || ex != 0){
+            int v1 = s1.isEmpty()?0:s1.pop();
+            int v2 = s2.isEmpty()?0:s2.pop();
+            int cur = v1 + v2 + ex;
+            if(cur>=10){
+                ex = 1;
+                cur = cur%10;
+            }else{
+                ex = 0;
+            }
+            reVal.append(cur);
+        }
+        char[] cs = reVal.reverse().toString().toCharArray();
+        ListNode re = new ListNode(cs[0]-'0');
+        ListNode ress = re;
+        for(int i=1;i<cs.length;i++){
+            ress.next = new ListNode(cs[i]-'0');
+            ress = ress.next;
+        }
+        return re;
+    }
+
 
 
     public static void main(String[] args) throws Exception{
-        MediumProblemSolution mediumProblemSolution = new MediumProblemSolution();
-//[["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]
-        List<List<String>> list = new ArrayList<>();
-        List<String> list1 = new ArrayList(){{add("1");add("2");}};
-        List<String> list2 = new ArrayList(){{add("2");add("3");}};
-        List<String> list3 = new ArrayList(){{add("2");add("4");}};
-        List<String> list4 = new ArrayList(){{add("4");add("2");}};
-        list.add(list1);
-        list.add(list2);
-        list.add(list3);
-        list.add(list4);
-        List<String> itinerary = new MediumProblemSolution().findItinerary(list);
 
-        int iii = ThreadLocalRandom.current().nextInt(1);
-        int qq = ThreadLocalRandom.current().nextInt(1);
-        int a = ThreadLocalRandom.current().nextInt(1);
-        System.out.println(iii+"  "+qq+"  "+a);
+//        MediumProblemSolution mediumProblemSolution = new MediumProblemSolution();
+//        System.out.println(mediumProblemSolution.wordBreakProMaster("catsanddog",new ArrayList<String>(){{add("cat");
+//            add("cats");add("and");add("sand");add("dog");}}));
 
+        int[] x = new int[]{8,0,1,2,5};
+        sort(x,0,x.length-1);
+        System.out.printf(Arrays.toString(x));
     }
 
     private static void sort(int[] num,int start,int end){

@@ -27,7 +27,7 @@ public class RPCServer {
                 while((socket = server.accept()) != null){  
                     System.out.println("client connected...");  
                     threadPool.execute(new Processor(socket, service));  
-                }  
+                }
             } catch (IOException e) {
                 e.printStackTrace();  
             }  

@@ -10,7 +10,7 @@ import java.nio.channels.FileChannel;
 public class FileChannelTest {
 
     public static void main(String[] args) throws Exception{
-        System.out.println("进来了？");
+
         RandomAccessFile randomAccessFile = new RandomAccessFile("temmdsadm.txt", "rw");
         FileChannel fileChannel = randomAccessFile.getChannel();
 

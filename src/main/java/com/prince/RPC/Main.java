@@ -8,4 +8,4 @@ public class Main {
             RPCServer server = new RPCServer();  
             server.register(helloService, 50001);  
         }  
-    }  
+    }

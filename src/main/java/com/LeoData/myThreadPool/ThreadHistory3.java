@@ -13,6 +13,7 @@ public class ThreadHistory3 {
 
 	public static void handleRequest(Socket socket) {
 		try {
+
 			InputStream is = socket.getInputStream();
 			byte[] buff = new byte[1024];
 			int len = is.read(buff);

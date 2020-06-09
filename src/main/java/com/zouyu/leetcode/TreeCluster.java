@@ -1,6 +1,7 @@
 package com.zouyu.leetcode;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by zouy-c on 2018/6/12.
@@ -370,19 +371,21 @@ public class TreeCluster {
         return root;
     }
 
-    public boolean isSymmetric(TreeNode root) {
-        return root==null || isSym(root.left,root.right);
-    }
+//    public boolean isSymmetric(TreeNode root) {
+//        return root==null || isSym(root.left,root.right);
+//    }
+//
+//    private boolean isSym(TreeNode left, TreeNode right) {
+//        if(left == null || right == null){
+//            return left == right;
+//        }
+//        if(left.val == right.val) {
+//            return isSym(left.left,right.right) && isSym(left.right,right.left);
+//        }
+//        return false;
+//    }
 
-    private boolean isSym(TreeNode left, TreeNode right) {
-        if(left == null || right == null){
-            return left == right;
-        }
-        if(left.val == right.val) {
-            return isSym(left.left,right.right) && isSym(left.right,right.left);
-        }
-        return false;
-    }
+
 
     public int maxDepth(TreeNode root) {
         if(root == null) return 0;
@@ -525,13 +528,128 @@ public class TreeCluster {
         return leftVal+rightVal;
     }
 
+    /**
+     * 使用迭代进行二叉树后序遍历
+     * @param root
+     * @return
+     */
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if(root == null){
+            return Collections.emptyList();
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = root;
+        stack.push(node);
+        while(!stack.isEmpty()){
+            while(node != null && node.left != null){
+                node = node.left;
+                stack.push(node);
+            }
+            TreeNode peek = stack.peek();
+            if(peek.right != null){
+                stack.push(peek.right);
+                node = peek.right;
+            }else{
+                TreeNode topEle = stack.pop();
+                if(stack != null && !stack.isEmpty() && stack.peek().right == topEle){
+                    stack.peek().right = null;
+                }
+                res.add(topEle.val);
+            }
+        }
+        return res;
+    }
+
+    /**
+     * BST删除节点
+     * @param root
+     * @param key
+     * @return
+     */
+//    public TreeNode deleteNode(TreeNode root, int key) {
+//        if(root == null){
+//            return null;
+//        }
+//        if(root.val == key){
+//            if(root)
+//        }
+//    }
+
+    int sum = 0;
+
+    public int sumRootToLeaf(TreeNode root) {
+        travel(root, 0,0);
+        return sum;
+    }
+
+    private void travel(TreeNode node, int curSum, int level){
+        int innerSum = curSum + node.val * (int)(Math.pow(2,level));
+        if(node.left == null && node.right == null){
+            sum += innerSum;
+            return;
+        }
+        if(node.left != null){
+            travel(node.left, innerSum, level+1);
+        }
+        if(node.right != null){
+            travel(node.right, innerSum, level+1);
+        }
+    }
+
+    public List<List<Integer>> pathSumNew(TreeNode root, int sum) {
+        List<List<Integer>> result = new ArrayList();
+        List<Integer> cur = new ArrayList();
+        recur(root, sum, cur, result);
+        return result;
+    }
+
+    void recur(TreeNode root, int sum, List<Integer> cur, List<List<Integer>> re){
+        if(root == null){
+            return;
+        }
+
+        new AtomicInteger().incrementAndGet();
+        if(root.left == null && root.right == null){
+            if(sum == root.val){
+                cur.add(root.val);
+                re.add(new ArrayList<>(cur));
+                cur.remove(cur.size()-1);
+            }
+        }
+
+        if(root.left != null){
+            cur.add(root.val);
+            recur(root.left, sum-root.val, cur, re);
+            cur.remove(cur.size()-1);
+        }
+        if(root.right != null){
+            cur.add(root.val);
+            recur(root.right, sum-root.val, cur, re);
+            cur.remove(cur.size()-1);
+        }
+    }
 
     public static void main(String[] args) {
         TreeCluster tc = new TreeCluster();
-        TreeNode tree = tc.toBiTree(new int[]{1,2,3,Integer.MIN_VALUE,Integer.MIN_VALUE,4,5});
-        String serialize = Codec.serialize(tree);
-        System.out.println(serialize);
-        TreeNode deserialize = Codec.deserialize(serialize);
+        TreeNode root = new TreeNode(1);
+        TreeNode l1 = new TreeNode(2);
+        TreeNode r1 = new TreeNode(2);
+        TreeNode l12 = null;
+        TreeNode r12 = new TreeNode(3);
+        TreeNode l21 = new TreeNode(3);
+        TreeNode r22 = null;
+        root.left = l1;
+        root.right = r1;
+        l1.left = l12;
+        l1.right = r12;
+        r1.left = l21;
+        r1.right = r22;
+        List<List<Integer>> lists = tc.pathSumNew(root, 6);
+        System.out.println(lists.size());
+
+//        tc.buildTree1(new int[]{3,9,20,15,7},new int[]{9,3,15,20,7});
+
 
 //        List<Integer> list = new ArrayList<>();
 //        tc.inorderRec(list, tree);

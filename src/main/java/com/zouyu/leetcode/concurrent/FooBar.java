@@ -18,7 +18,6 @@ class FooBar {
     }
 
     public void foo(Runnable printFoo) throws InterruptedException {
-        
         for (int i = 0; i < n; i++) {
                 s1.acquire();
                 // printFoo.run() outputs "foo". Do not change or remove this line.
@@ -28,7 +27,6 @@ class FooBar {
     }
 
     public void bar(Runnable printBar) throws InterruptedException {
-        
         for (int i = 0; i < n; i++) {
                 s2.acquire();
                 // printBar.run() outputs "bar". Do not change or remove this line.
